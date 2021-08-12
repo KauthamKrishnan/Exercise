@@ -174,13 +174,49 @@ final class Practice {
      * "==============================================\n");
      */
 
-    // 15.Swap two variables
-    byte a = 1, b = 2, c;
+    // 15.Swap two variables.
+    /*
+     * byte a = 1, b = 2, c;
+     * 
+     * c = a; a = b; b = c;
+     * 
+     * System.out.println("Value of a: " + a + ", b: " + b + ", c: " + c);
+     */
+
+    // 16.Print face.
+    // System.out.println(" +\"\"\"\"\"+ \n[| o o |]\n | ^ | \n | '-' | \n +-----+");
+
+    // 17. Add two binary numbers.
     
-    c = a;
-    a = b;
-    b = c;
+    System.out.println("Input two binary numbers.");
     
-    System.out.println("Value of a: " + a + ", b: " + b + ", c: " + c);
+    short a, b, i = 0, remainder = 0;
+    short[] order = new short[10];
+    Scanner scanObj = new Scanner(System.in);
+    
+    a = scanObj.nextShort();
+    b = scanObj.nextShort();
+    scanObj.close();
+    
+    while(a != 0 || b != 0) {
+      order[i++] = (short) ((a % 10 + b % 10 + remainder) % 2);
+      remainder = (short) ((a % 10 + b % 10 + remainder) / 2);
+      a = (short) (a / 10);
+      b = (short) (b / 10);
+    }
+    
+    if(remainder != 0) {
+      order[i++] = remainder;
+    }
+    
+    i--;
+    
+    System.out.print("The sum of two binary numbers: ");
+    
+    while(i >= 0) {
+      System.out.print(order[i--]);
+    }
+    
+    // 18.
   }
 }
