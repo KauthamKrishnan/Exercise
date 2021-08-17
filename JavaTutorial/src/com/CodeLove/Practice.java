@@ -187,36 +187,82 @@ final class Practice {
     // System.out.println(" +\"\"\"\"\"+ \n[| o o |]\n | ^ | \n | '-' | \n +-----+");
 
     // 17. Add two binary numbers.
-    
-    System.out.println("Input two binary numbers.");
-    
-    short a, b, i = 0, remainder = 0;
-    short[] order = new short[10];
+
+    /*
+     * System.out.println("Input two binary numbers.");
+     * 
+     * short a, b, i = 0, remainder = 0; short[] order = new short[10]; Scanner scanObj = new
+     * Scanner(System.in);
+     * 
+     * a = scanObj.nextShort(); b = scanObj.nextShort(); scanObj.close();
+     * 
+     * while(a != 0 || b != 0) { order[i++] = (short) ((a % 10 + b % 10 + remainder) % 2); remainder
+     * = (short) ((a % 10 + b % 10 + remainder) / 2); a = (short) (a / 10); b = (short) (b / 10); }
+     * 
+     * if(remainder != 0) { order[i++] = remainder; }
+     * 
+     * i--;
+     * 
+     * System.out.print("The sum of two binary numbers: ");
+     * 
+     * while(i >= 0) { System.out.print(order[i--]); }
+     */
+
+    // 18.Multiply two binary numbers.
+    /*System.out.println("Input two binary numbers.");
     Scanner scanObj = new Scanner(System.in);
+    short firstBinary, secBinary, multiResult = 0;
+    byte digit, factor = 1;
+    firstBinary = scanObj.nextShort();
+    secBinary = scanObj.nextShort();
+    scanObj.close();
+
+    while (secBinary != 0) {
+      digit = (byte) (secBinary % 10);
+      if (digit == 1) {
+        firstBinary = (short) (firstBinary * factor);
+        multiResult = binaryProduct(firstBinary, multiResult);
+        secBinary = (short) (secBinary / 10);
+        factor = 10;
+      } else {
+        firstBinary = (short) (firstBinary * factor);
+        secBinary = (short) (secBinary / 10);
+        factor = 10;
+      }
+    }
     
-    a = scanObj.nextShort();
-    b = scanObj.nextShort();
+    System.out.print("The product of the numbers: " + multiResult);
+  }
+
+  private static short binaryProduct(short firstBinary, short multiResult) {
+    short productValue = 0;
+    byte remainder = 0, i = 0;
+    short[] order = new short[20];
+
+    while (firstBinary != 0 || multiResult != 0) {
+      order[i++] = (short) ((firstBinary % 10 + multiResult % 10 + remainder) % 2);
+      remainder = (byte) ((firstBinary % 10 + multiResult % 10 + remainder) / 2);
+      firstBinary = (short) (firstBinary / 10);
+      multiResult = (short) (multiResult / 10);
+    }
+
+    --i;
+
+    while (i >= 0) {
+      productValue = (short) (productValue * 10 + order[i--]);
+    }
+
+    return productValue;*/
+    
+    //19.Convert decimal number to binary number.
+    
+    System.out.println("Input a decimal number");
+    Scanner scanObj = new Scanner(System.in);
+    byte a;
+    
+    a = scanObj.nextByte();
     scanObj.close();
     
-    while(a != 0 || b != 0) {
-      order[i++] = (short) ((a % 10 + b % 10 + remainder) % 2);
-      remainder = (short) ((a % 10 + b % 10 + remainder) / 2);
-      a = (short) (a / 10);
-      b = (short) (b / 10);
-    }
-    
-    if(remainder != 0) {
-      order[i++] = remainder;
-    }
-    
-    i--;
-    
-    System.out.print("The sum of two binary numbers: ");
-    
-    while(i >= 0) {
-      System.out.print(order[i--]);
-    }
-    
-    // 18.
   }
+
 }
