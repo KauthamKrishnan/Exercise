@@ -2,6 +2,7 @@
 
 package com.CodeLove;
 
+import java.util.LinkedList;
 import java.util.Scanner;
 
 final class Practice {
@@ -238,91 +239,143 @@ final class Practice {
 
     // 19.Convert decimal number to binary number.
 
-    System.out.println("Input a decimal number");
+    /*
+     * System.out.println("Input a decimal number");
+     * 
+     * Scanner scanObj = new Scanner(System.in); short userNumber; userNumber = scanObj.nextShort();
+     * scanObj.close();
+     * 
+     * short[] binaryStandard = {128, 64, 32, 16, 8, 4, 2}; int mixer = 0; while (userNumber != 0) {
+     * if (userNumber >= binaryStandard[0]) { mixer = addBinary(mixer, 10000000); userNumber -=
+     * binaryStandard[0]; continue;
+     * 
+     * } else if (userNumber >= binaryStandard[1]) { mixer = addBinary(mixer, 1000000); userNumber
+     * -= binaryStandard[1]; continue;
+     * 
+     * } else if (userNumber >= binaryStandard[2]) { mixer = addBinary(mixer, 100000); userNumber -=
+     * binaryStandard[2]; continue;
+     * 
+     * } else if (userNumber >= binaryStandard[3]) { mixer = addBinary(mixer, 10000); userNumber -=
+     * binaryStandard[3]; continue;
+     * 
+     * } else if (userNumber >= binaryStandard[4]) { mixer = addBinary(mixer, 1000); userNumber -=
+     * binaryStandard[4]; continue;
+     * 
+     * } else if (userNumber >= binaryStandard[5]) { mixer = addBinary(mixer, 100); userNumber -=
+     * binaryStandard[5]; continue;
+     * 
+     * } else if (userNumber >= binaryStandard[6]) { mixer = addBinary(mixer, 10); userNumber -=
+     * binaryStandard[6]; continue;
+     * 
+     * } else if (userNumber >= 1) { mixer += 1; userNumber -= 1; continue; } }
+     * 
+     * System.out.print("The binary number for the decimal: " + mixer);
+     */
+    // 2nd Method to solve Task 19.
+    /*
+     * System.out.println("Input a decimal number.");
+     * 
+     * short userNumber; int[] order = new int[20]; Scanner scanObj = new Scanner(System.in);
+     * 
+     * userNumber = scanObj.nextShort(); scanObj.close();
+     * 
+     * byte i = 0; do { order[i++] = userNumber % 2; userNumber = (short) (userNumber / 2); } while
+     * (userNumber != 0);
+     * 
+     * --i;
+     * 
+     * System.out.print("Binary number: "); while (i >= 0) { System.out.print(order[i--]);
+     */
 
+    // 20.Convert Decimal to Binary.
+
+    /*
+     * System.out.println("Input a decimal number."); Scanner scanObj = new Scanner(System.in); int
+     * userNumber;
+     * 
+     * userNumber = scanObj.nextInt(); scanObj.close();
+     * 
+     * short remainder = 0; String hexString = ""; char[] hexStandard = {'0', '1', '2', '3', '4',
+     * '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
+     * 
+     * do {
+     * 
+     * remainder = (short) (userNumber % 16); hexString = hexStandard[remainder] + hexString;
+     * userNumber = userNumber / 16; } while (userNumber != 0);
+     * 
+     * System.out.print("Hexadecimal number: " + hexString);
+     */
+
+    // 21. Convert Decimal Number to Octal Number.
+    /*
+     * System.out.println("Input a decimal number.");
+     * 
+     * Scanner scanObj = new Scanner(System.in); short userNum;
+     * 
+     * userNum = scanObj.nextShort(); scanObj.close();
+     * 
+     * byte[] order = new byte[20]; byte i = 0; while(userNum != 0) { order[i++] = (byte) (userNum %
+     * 8); userNum = (short) (userNum / 8); }
+     * 
+     * --i;
+     * 
+     * String result = ""; while(i >= 0) { result = result + order[i--]; }
+     * 
+     * System.out.print(result);
+     */
+
+    // 22.Convert binary number to decimal number.
+    /*
+     * System.out.println("Input binary number.");
+     * 
+     * Scanner scanObj = new Scanner(System.in);
+     * int userNum, result = 0;
+     * 
+     * userNum = scanObj.nextInt();
+     * scanObj.close();
+     * 
+     * byte[] order = new byte[8];
+     * byte j = 0, i = 0;
+     * short[] Base10 = {1, 2, 4, 8, 16, 32, 64, 128};
+     * 
+     * while (userNum > 0) {
+     * order[j++] = (byte) (userNum % 10);
+     * userNum = userNum / 10;
+     * }
+     * 
+     * for(byte k: order) {
+     * result += k * Base10[i++];
+     * }
+     * 
+     * System.out.print(result);
+     */
+
+    // 23.Convert binary number to hexadecimal number.
+    System.out.println("Input a binary number.");
     Scanner scanObj = new Scanner(System.in);
-    short userNumber;
-    userNumber = scanObj.nextShort();
+    
+    int userBinary = scanObj.nextInt();
     scanObj.close();
-
-    short[] binaryStandard = {128, 64, 32, 16, 8, 4, 2};
-    int mixer = 0;
-    while (userNumber != 0) {
-      if (userNumber >= binaryStandard[0]) {
-        mixer = addBinary(mixer, 10000000);
-        userNumber -= binaryStandard[0];
-        continue;
-
-      } else if (userNumber >= binaryStandard[1]) {
-        mixer = addBinary(mixer, 1000000);
-        userNumber -= binaryStandard[1];
-        continue;
-
-      } else if (userNumber >= binaryStandard[2]) {
-        mixer = addBinary(mixer, 100000);
-        userNumber -= binaryStandard[2];
-        continue;
-
-      } else if (userNumber >= binaryStandard[3]) {
-        mixer = addBinary(mixer, 10000);
-        userNumber -= binaryStandard[3];
-        continue;
-
-      } else if (userNumber >= binaryStandard[4]) {
-        mixer = addBinary(mixer, 1000);
-        userNumber -= binaryStandard[4];
-        continue;
-
-      } else if (userNumber >= binaryStandard[5]) {
-        mixer = addBinary(mixer, 100);
-        userNumber -= binaryStandard[5];
-        continue;
-
-      } else if (userNumber >= binaryStandard[6]) {
-        mixer = addBinary(mixer, 10);
-        userNumber -= binaryStandard[6];
-        continue;
-
-      } else if (userNumber >= 1) {
-        mixer += 1;
-        userNumber -= 1;
-        continue;
-      }
-    }
-
-    System.out.print("The binary number for the decimal: " + mixer);
+    
+    
   }
-
-  private static int addBinary(int mixer, int adder) {
-    int output = 0;
- 
-    if (mixer == adder) {
-      int[] order = new int[20];
-      byte remainder = 0, i = 0;
-      
-      while (mixer != 0 || adder != 0) {
-        order[i++] = (mixer % 10 + adder % 10 + remainder) % 2;
-        remainder = (byte) ((mixer % 10 + adder % 10 + remainder) / 2);
-        mixer = mixer / 10;
-        adder = adder / 10;
-      }
-
-      if (remainder != 0) {
-        order[i++] = remainder;
-      }
-
-      --i;
-
-      while (i >= 0) {
-        output = output * 10 + order[i--];
-      }
-    }
-    else {
-      output = mixer + adder;
-    }
-
-
-    return output;
-  }
-
 }
+
+/*
+ * Method for Task 19 private static int addBinary(int mixer, int adder) { int output = 0;
+ * 
+ * if (mixer == adder) { int[] order = new int[20]; byte remainder = 0, i = 0;
+ * 
+ * while (mixer != 0 || adder != 0) { order[i++] = (mixer % 10 + adder % 10 + remainder) % 2;
+ * remainder = (byte) ((mixer % 10 + adder % 10 + remainder) / 2); mixer = mixer / 10; adder = adder
+ * / 10; }
+ * 
+ * if (remainder != 0) { order[i++] = remainder; }
+ * 
+ * --i;
+ * 
+ * while (i >= 0) { output = output * 10 + order[i--]; } } else { output = mixer + adder; }
+ * 
+ * 
+ * return output; }
+ */
