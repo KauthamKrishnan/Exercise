@@ -351,13 +351,92 @@ final class Practice {
      */
 
     // 23.Convert binary number to hexadecimal number.
-    System.out.println("Input a binary number.");
+    /*
+     * System.out.print("Input a binary number:");
+     * Scanner scanObj = new Scanner(System.in);
+     * 
+     * int userBinary = scanObj.nextInt();
+     * scanObj.close();
+     * 
+     * byte lastDigit, j = 1;
+     * short dec = 0;
+     * 
+     * // Convert to Decimal Number.
+     * while (userBinary != 0) {
+     * lastDigit = (byte) (userBinary % 10);
+     * userBinary = (userBinary / 10);
+     * 
+     * dec += (short) (lastDigit * j);
+     * j *= 2;
+     * }
+     * 
+     * byte[] order = new byte[20];
+     * byte i = 0;
+     * 
+     * // Convert to Hexadecimal Number.
+     * while (dec != 0) {
+     * order[i++] = (byte) (dec % 16);
+     * dec = (short) (dec / 16);
+     * }
+     * 
+     * // Print out the value.
+     * for (--i; i >= 0; i--) {
+     * if (order[i] > 9) {
+     * System.out.print((char) (order[i] + 55));
+     * } else {
+     * System.out.print(order[i]);
+     * }
+     * }
+     */
+
+    // 24.Convert Binary Number to Octal Number.
+    /*System.out.print("Input a Binary Number:");
     Scanner scanObj = new Scanner(System.in);
-    
+
     int userBinary = scanObj.nextInt();
     scanObj.close();
+
+    short dec = 0;
+    byte j = 1;
+
+    // Convert Binary to Decimal.
+    while (userBinary != 0) {
+      byte lastDigit = (byte) (userBinary % 10);
+      userBinary = (userBinary / 10);
+
+      dec += (short) (lastDigit * j);
+      j *= 2;
+    }
+
+    String result = "";
+
+    // Convert Decimal to Octal.
+    while (dec != 0) {
+      result = String.valueOf(dec % 8) + result;
+      dec = (short) (dec / 8);
+    }
     
+    System.out.print(result);*/
     
+    //25.Convert Octal Number to Binary Number
+    /*System.out.print("Input an Octal Number:");
+    Scanner scanObj = new Scanner(System.in);
+    
+    int userOctal = scanObj.nextInt();
+    scanObj.close();
+    
+    int dec = 0;
+    byte j = 1;
+    
+    //Convert Octal to Decimal
+    while(userOctal > 0) {
+      byte lastDigit = (byte) (userOctal % 10);
+      userOctal = (userOctal / 10);
+      dec += (lastDigit * j);
+      j *= 8;
+    }
+    
+    System.out.print(dec);*/
   }
 }
 
