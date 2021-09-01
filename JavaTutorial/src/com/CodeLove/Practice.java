@@ -390,53 +390,282 @@ final class Practice {
      */
 
     // 24.Convert Binary Number to Octal Number.
-    /*System.out.print("Input a Binary Number:");
+    /*
+     * System.out.print("Input a Binary Number:");
+     * Scanner scanObj = new Scanner(System.in);
+     * 
+     * int userBinary = scanObj.nextInt();
+     * scanObj.close();
+     * 
+     * short dec = 0;
+     * byte j = 1;
+     * 
+     * // Convert Binary to Decimal.
+     * while (userBinary != 0) {
+     * byte lastDigit = (byte) (userBinary % 10);
+     * userBinary = (userBinary / 10);
+     * 
+     * dec += (short) (lastDigit * j);
+     * j *= 2;
+     * }
+     * 
+     * String result = "";
+     * 
+     * // Convert Decimal to Octal.
+     * while (dec != 0) {
+     * result = String.valueOf(dec % 8) + result;
+     * dec = (short) (dec / 8);
+     * }
+     * 
+     * System.out.print(result);
+     */
+
+    // 25.Convert Octal Number to Binary Number
+    /*
+     * System.out.print("Input an Octal Number:");
+     * Scanner scanObj = new Scanner(System.in);
+     * 
+     * int userOctal = scanObj.nextInt();
+     * scanObj.close();
+     * 
+     * int dec = 0;
+     * byte j = 1;
+     * 
+     * //Convert Octal to Decimal
+     * while(userOctal > 0) {
+     * byte lastDigit = (byte) (userOctal % 10);
+     * userOctal = (userOctal / 10);
+     * dec += (lastDigit * j);
+     * j *= 8;
+     * }
+     * 
+     * System.out.print(dec);
+     */
+
+    // 26.Convert Octal to Binary.
+
+    /*
+     * System.out.println("Input an Octal Number:");
+     * Scanner scanObj = new Scanner(System.in);
+     * 
+     * short userOctal = scanObj.nextShort();
+     * scanObj.close();
+     * 
+     * // Convert Octal to Decimal.
+     * short dec = 0;
+     * byte lastDigit, j = 1;
+     * while (userOctal != 0) {
+     * lastDigit = (byte) (userOctal % 10);
+     * userOctal = (short) (userOctal / 10);
+     * dec += (short) (lastDigit * j);
+     * j *= 8;
+     * }
+     * 
+     * String result = "";
+     * 
+     * // Convert Decimal to Binary.
+     * while (dec != 0) {
+     * result = (byte) (dec % 2) + result;
+     * dec = (short) (dec / 2);
+     * }
+     * 
+     * System.out.print(result);
+     */
+
+    // 27.Convert Octal Number to Hexadecimal Number.
+    /*
+     * System.out.print("Input an Octal Number:");
+     * Scanner scanObj = new Scanner(System.in);
+     * 
+     * String userOctal = scanObj.next();
+     * scanObj.close();
+     * 
+     * short dec = Short.parseShort(userOctal, 8);
+     * String hex = Integer.toHexString(dec);
+     * System.out.print(hex);
+     */
+
+    // 28.Convert Hexadecimal Number to Decimal Number.
+    /*
+     * System.out.print("Input a Hexadecimal Number:");
+     * 
+     * Scanner scanObj = new Scanner(System.in);
+     * String userHex = scanObj.next();
+     * scanObj.close();
+     * 
+     * short dec = Short.parseShort(userHex, 16);
+     * System.out.print(dec);
+     */
+
+    // 29.Convert Hexadecimal Number to Binary Number.
+    /*
+     * System.out.print("Input a Hexadecimal Number:");
+     * Scanner scanObj = new Scanner(System.in);
+     * String userHex = scanObj.next();
+     * scanObj.close();
+     * 
+     * int dec = Integer.parseInt(userHex, 16);
+     * String bin = Integer.toBinaryString(dec);
+     * System.out.print(bin);
+     */
+
+    // 30.Convert Hexadecimal Number to Octal Number.
+    /*
+     * System.out.print("Input a Hexadecimal Number:");
+     * Scanner scanObj = new Scanner(System.in);
+     * String userHex = scanObj.next();
+     * scanObj.close();
+     * 
+     * int dec = Integer.parseInt(userHex, 16);
+     * String octal = Integer.toOctalString(dec);
+     * System.out.print(octal);
+     */
+
+    // 31.Check Java installed on your PC.
+    /*
+     * String javaVer, javaRuntimeVer, javaHome, javaVendor, javaVendorURL, javaClassPath;
+     * 
+     * javaVer = System.getProperty("java.version");
+     * javaRuntimeVer = System.getProperty("java.runtime.version");
+     * javaHome = System.getProperty("java.home");
+     * javaVendor = System.getProperty("java.vendor");
+     * javaVendorURL = System.getProperty("java.vendor.url");
+     * javaClassPath = System.getProperty("java.class.path");
+     * 
+     * System.out.print("Java Version: " + javaVer +
+     * "\nJava Runtime Version: " + javaRuntimeVer +
+     * "\nJava Home: " + javaHome +
+     * "\nJava Vendor: " + javaVendor +
+     * "\nJava Vendor URL: " + javaVendorURL +
+     * "\nJava Class Path: " + javaClassPath);
+     */
+
+    // 32.Compare two numbers.
+    /*
+     * System.out.println("Input two numbers for comparison.");
+     * Scanner scanObj = new Scanner(System.in);
+     * 
+     * int firstNum, secNum;
+     * firstNum = scanObj.nextInt();
+     * secNum = scanObj.nextInt();
+     * scanObj.close();
+     * 
+     * if (firstNum != secNum) {
+     * System.out.println(firstNum + " != " + secNum);
+     * }
+     * if (firstNum < secNum) {
+     * System.out.println(firstNum + " < " + secNum);
+     * }
+     * if (firstNum <= secNum) {
+     * System.out.println(firstNum + " <= " + secNum);
+     * }
+     */
+
+    // 33.Sum the digits of an integer.
+    /*
+     * System.out.print("Input a number: ");
+     * Scanner scanObj = new Scanner(System.in);
+     * int userNum = scanObj.nextInt();
+     * scanObj.close();
+     * 
+     * int result = 0;
+     * while(userNum > 0) {
+     * int lastDigit = (userNum % 10);
+     * userNum = (userNum / 10);
+     * result += lastDigit;
+     * }
+     * 
+     * System.out.print(result);
+     */
+
+    // 34.Compute the area of hexagon.
+    /*
+     * System.out.print("Input length of the hexagon side: ");
+     * Scanner scanObj = new Scanner(System.in);
+     * 
+     * byte length = scanObj.nextByte();
+     * scanObj.close();
+     * double result = (6 * (length * length) / (4 * Math.tan(Math.PI / 6)));
+     * 
+     * System.out.print(result);
+     */
+
+    // 35.Compute area of a polygon.
+    /*
+     * System.out.print("Input number of sides following the length of polygon:");
+     * Scanner scanObj = new Scanner(System.in);
+     * int sides, length;
+     * sides = scanObj.nextInt();
+     * length = scanObj.nextInt();
+     * scanObj.close();
+     * 
+     * double result = ((sides * (length * length)) / (4 * Math.tan(Math.PI / sides)));
+     * System.out.print(result);
+     */
+
+    // 36.Compute distance between two points on Earth.
+    /*
+     * System.out.print("Input the latitude(x) of point A: ");
+     * Scanner scanObj = new Scanner(System.in);
+     * double xPointA = Math.toRadians(scanObj.nextDouble());
+     * 
+     * System.out.print("Input the longitude(y) of Point A: ");
+     * double yPointA = Math.toRadians(scanObj.nextDouble());
+     * 
+     * System.out.print("Input the latitude(x) of Point B: ");
+     * double xPointB = Math.toRadians(scanObj.nextDouble());
+     * 
+     * System.out.print("Input the longitude(y) of Point B: ");
+     * double yPointB = Math.toRadians(scanObj.nextDouble());
+     * scanObj.close();
+     * 
+     * double result = 6371.01d * (Math.acos(Math.sin(xPointA) * Math.sin(xPointB) +
+     * (Math.cos(xPointA) * Math.cos(xPointB)) * Math.cos(yPointA - yPointB)));
+     * System.out.print(result);
+     */
+
+    // 37.Reverse a string.
+
+    /*
+     * System.out.print("Input a string: ");
+     * Scanner scanObj = new Scanner(System.in);
+     * 
+     * String userString = scanObj.next();
+     * scanObj.close();
+     * 
+     * StringBuilder buildObj = new StringBuilder();
+     * 
+     * buildObj.append(userString);
+     * System.out.print(buildObj.reverse());
+     */
+
+    // 38.Count letters, numbers, spaces, other.
+    /*System.out.print("Input a sentence: ");
     Scanner scanObj = new Scanner(System.in);
 
-    int userBinary = scanObj.nextInt();
+    char[] userSentence = scanObj.nextLine().toCharArray();
+    // String UserSentence = scanObj.nextLine();
     scanObj.close();
 
-    short dec = 0;
-    byte j = 1;
+    int alphabet = 0, space = 0, digit = 0, other = 0;
 
-    // Convert Binary to Decimal.
-    while (userBinary != 0) {
-      byte lastDigit = (byte) (userBinary % 10);
-      userBinary = (userBinary / 10);
-
-      dec += (short) (lastDigit * j);
-      j *= 2;
-    }
-
-    String result = "";
-
-    // Convert Decimal to Octal.
-    while (dec != 0) {
-      result = String.valueOf(dec % 8) + result;
-      dec = (short) (dec / 8);
+    for (char i : userSentence) {
+      if (Character.isDigit(i)) {
+        digit++;
+      } else if (Character.isSpaceChar(i)) {
+        space++;
+      } else if (Character.isAlphabetic(i)) {
+        alphabet++;
+      } else {
+        other++;
+      }
     }
     
-    System.out.print(result);*/
+    System.out.print("Digit: " + digit + "\nSpace: " + space + "\nAlphabet: " + alphabet + "\nOther: " + other);*/
     
-    //25.Convert Octal Number to Binary Number
-    /*System.out.print("Input an Octal Number:");
-    Scanner scanObj = new Scanner(System.in);
+    //39.Create unique numbers with 4 digits and count it.
     
-    int userOctal = scanObj.nextInt();
-    scanObj.close();
     
-    int dec = 0;
-    byte j = 1;
-    
-    //Convert Octal to Decimal
-    while(userOctal > 0) {
-      byte lastDigit = (byte) (userOctal % 10);
-      userOctal = (userOctal / 10);
-      dec += (lastDigit * j);
-      j *= 8;
-    }
-    
-    System.out.print(dec);*/
   }
 }
 
