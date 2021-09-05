@@ -2,7 +2,9 @@
 
 package com.CodeLove;
 
-import java.util.LinkedList;
+import java.io.Console;
+import java.io.File;
+import java.time.LocalDateTime;
 import java.util.Scanner;
 
 final class Practice {
@@ -640,32 +642,133 @@ final class Practice {
      */
 
     // 38.Count letters, numbers, spaces, other.
-    /*System.out.print("Input a sentence: ");
+    /*
+     * System.out.print("Input a sentence: ");
+     * Scanner scanObj = new Scanner(System.in);
+     * 
+     * char[] userSentence = scanObj.nextLine().toCharArray();
+     * // String UserSentence = scanObj.nextLine();
+     * scanObj.close();
+     * 
+     * int alphabet = 0, space = 0, digit = 0, other = 0;
+     * 
+     * for (char i : userSentence) {
+     * if (Character.isDigit(i)) {
+     * digit++;
+     * } else if (Character.isSpaceChar(i)) {
+     * space++;
+     * } else if (Character.isAlphabetic(i)) {
+     * alphabet++;
+     * } else {
+     * other++;
+     * }
+     * }
+     * 
+     * System.out.print("Digit: " + digit + "\nSpace: " + space + "\nAlphabet: " + alphabet +
+     * "\nOther: " + other);
+     */
+
+    // 39.Create unique numbers with 4 digits and count it.
+
+    /*
+     * short count = 0;
+     * 
+     * for (byte i = 1; i < 5; i++) {
+     * for (byte j = 1; j < 5; j++) {
+     * for (byte k = 1; k < 5; k++) {
+     * if (i != j && j != k && k != i) {
+     * String result = i + "" + j + "" + k;
+     * System.out.println(result);
+     * count++;
+     * }
+     * }
+     * }
+     * }
+     * 
+     * System.out.print("Number of occurence: " + count);
+     */
+
+    // 40.List available characters in charset objects.
+    /*
+     * for(String charSets:Charset.availableCharsets().keySet()) {
+     * System.out.println(charSets);
+     * }
+     */
+
+
+    // 41.Print the ASCII value of a given character.
+
+    /*
+     * System.out.print("Input a character: ");
+     * Scanner scanObj = new Scanner(System.in);
+     * char userChar = scanObj.next().charAt(0);
+     * scanObj.close();
+     * 
+     * System.out.print((int) userChar);
+     */
+
+    // 42.Input and display password.
+    /*
+     * Console cons;
+     * if ((cons = System.console()) != null) {
+     * char[] pass_ward = null;
+     * try {
+     * pass_ward = cons.readPassword("Input your Password:");
+     * System.out.println("Your password was: " + new String(pass_ward));
+     * } finally {
+     * if (pass_ward != null) {
+     * java.util.Arrays.fill(pass_ward, ' ');
+     * }
+     * }
+     * } else {
+     * throw new RuntimeException("Can't get password...No console");
+     * }
+     */
+
+    // 43.Write String in specific format.
+    /*
+     * System.out.
+     * println("Twinkle, twinkle, little star,\n\tHow I wonder what you are!\n\t\tUp above the world so high,"
+     * );
+     * System.out.
+     * println("\t\tLike a diamond in the sky.\nTwinkle, twinkle, little star,\n\tHow I wonder what you are"
+     * );
+     */
+
+    // 44.Input a number and print value of (n + nn + nnn).
+    /*
+     * System.out.print("Input a number: ");
+     * Scanner scanObj = new Scanner(System.in);
+     * short userNum = scanObj.nextShort();
+     * scanObj.close();
+     * 
+     * String secNum = userNum + "" + userNum;
+     * String thirdNum = userNum + "" + userNum + "" +userNum;
+     * 
+     * int result = userNum + Integer.valueOf(secNum) + Integer.valueOf(thirdNum);
+     * System.out.print(result);
+     */
+
+    // 45.Find the size of a specified file.
+    /*System.out.print("Input the path for the file: ");
     Scanner scanObj = new Scanner(System.in);
-
-    char[] userSentence = scanObj.nextLine().toCharArray();
-    // String UserSentence = scanObj.nextLine();
+    String path = scanObj.nextLine();
     scanObj.close();
-
-    int alphabet = 0, space = 0, digit = 0, other = 0;
-
-    for (char i : userSentence) {
-      if (Character.isDigit(i)) {
-        digit++;
-      } else if (Character.isSpaceChar(i)) {
-        space++;
-      } else if (Character.isAlphabetic(i)) {
-        alphabet++;
-      } else {
-        other++;
-      }
+    
+    File myFile = new File(path);
+    
+    if(myFile.exists()) {
+      System.out.print("File Size: " + myFile.length() + " bytes");
     }
+    else {
+      System.out.print("File does not exist.");
+    }*/
     
-    System.out.print("Digit: " + digit + "\nSpace: " + space + "\nAlphabet: " + alphabet + "\nOther: " + other);*/
+    // 46.Display the system time.
+    LocalDateTime myTime = LocalDateTime.now();
     
-    //39.Create unique numbers with 4 digits and count it.
-    
-    
+    System.out.print(myTime);
+    System.out.format("\nCurrent Date time: %tc%n\n", System.currentTimeMillis());
   }
 }
 
