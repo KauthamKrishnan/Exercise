@@ -5,6 +5,8 @@ package com.CodeLove;
 import java.io.Console;
 import java.io.File;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 final class Practice {
@@ -750,43 +752,234 @@ final class Practice {
      */
 
     // 45.Find the size of a specified file.
-    /*System.out.print("Input the path for the file: ");
-    Scanner scanObj = new Scanner(System.in);
-    String path = scanObj.nextLine();
-    scanObj.close();
-    
-    File myFile = new File(path);
-    
-    if(myFile.exists()) {
-      System.out.print("File Size: " + myFile.length() + " bytes");
-    }
-    else {
-      System.out.print("File does not exist.");
-    }*/
-    
+    /*
+     * System.out.print("Input the path for the file: ");
+     * Scanner scanObj = new Scanner(System.in);
+     * String path = scanObj.nextLine();
+     * scanObj.close();
+     * 
+     * File myFile = new File(path);
+     * 
+     * if(myFile.exists()) {
+     * System.out.print("File Size: " + myFile.length() + " bytes");
+     * }
+     * else {
+     * System.out.print("File does not exist.");
+     * }
+     */
+
     // 46.Display the system time.
-    LocalDateTime myTime = LocalDateTime.now();
+    /*
+     * LocalDateTime myTime = LocalDateTime.now();
+     * 
+     * System.out.print(myTime);
+     * System.out.format("\nCurrent Date time: %tc%n\n", System.currentTimeMillis());
+     */
+
+    // 47.Write current date time in specific format.
+    /*
+     * LocalDateTime myTime = LocalDateTime.now();
+     * DateTimeFormatter myFormat = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss.SSS");
+     * 
+     * System.out.print(myTime.format(myFormat));
+     */
+
+    // 48.Odd Numbers from 1 to 99.
+    /*
+     * for(byte i=1;i<100;i+=2) {
+     * System.out.println(i);
+     * }
+     */
+
+    // 49.Take number and check if odd(0) or even(1)
+    /*
+     * System.out.print("Input a number: ");
+     * Scanner myScan = new Scanner(System.in);
+     * byte userNum = myScan.nextByte();
+     * myScan.close();
+     * 
+     * byte result = (byte) (userNum % 2);
+     * 
+     * switch (result) {
+     * case 0:
+     * System.out.print("Even");
+     * break;
+     * case 1:
+     * System.out.print("Odd");
+     * break;
+     * }
+     */
+
+    // 50.Print numbers divisible by 3, 5 and both.
+    // ArrayList<Byte> divThree = new ArrayList<Byte>();
+    // ArrayList<Byte> divFive = new ArrayList<Byte>();
+    // ArrayList<Byte> divBoth = new ArrayList<Byte>();
+
+    /*
+     * String divThree = "", divFive = "", divBoth = "";
+     * 
+     * byte threeResult, fiveResult;
+     * 
+     * for (byte i = 1; i < 100; i++) {
+     * threeResult = (byte) (i % 3);
+     * if (threeResult == 0) {
+     * // divThree.add(i);
+     * divThree += i + ", ";
+     * }
+     * 
+     * fiveResult = (byte) (i % 5);
+     * if (fiveResult == 0) {
+     * divFive += i + ", ";
+     * }
+     * 
+     * if (threeResult == 0 && fiveResult == 0) {
+     * divBoth += i + ", ";
+     * }
+     * }
+     * 
+     * if (divThree != "") {
+     * divThree = Trimmer(divThree);
+     * }
+     * 
+     * if(divFive != "") {
+     * divFive = Trimmer(divFive);
+     * }
+     * 
+     * if(divBoth != "") {
+     * divBoth = Trimmer(divBoth);
+     * }
+     * 
+     * System.out.print("Divided by 3: " + divThree + "\nDivided by 5: " + divFive + "\nDivided by Both: " + divBoth);
+     */
+
+    // 51.String to Integer.
+    /*
+     * System.out.print("Input a number(String): ");
+     * Scanner myScan = new Scanner(System.in);
+     * String userStringNum = myScan.next();
+     * myScan.close();
+     * 
+     * System.out.print("The Integer value of the String: " + Integer.valueOf(userStringNum));
+     */
+
+    // 52.Sum two integer and return true if it is the third integer.
+    /*
+     * System.out.print("Input first integer: ");
+     * Scanner myScan = new Scanner(System.in);
+     * byte firstNum = myScan.nextByte();
+     * 
+     * System.out.print("Input second integer: ");
+     * byte secNum = myScan.nextByte();
+     * 
+     * System.out.print("Input third integer: ");
+     * byte thirdNum = myScan.nextByte();
+     * myScan.close();
+     * 
+     * short result = (short) (firstNum + secNum);
+     * if (result == thirdNum) {
+     * System.out.print("The result is: true");
+     * }
+     */
+
+    // 53. Accept three integers and return true if (2nd > 1st) && (3rd > 2nd). If abc true, (2nd > 1st) no need to be
+    // true.
+    /*
+     * System.out.print("Input 1st number: ");
+     * Scanner myScan = new Scanner(System.in);
+     * byte firstNum = myScan.nextByte();
+     * 
+     * System.out.print("Input 2nd number: ");
+     * byte secNum = myScan.nextByte();
+     * 
+     * System.out.print("Input 3rd number: ");
+     * byte thirdNum = myScan.nextByte();
+     * myScan.close();
+     * boolean abc = false;
+     * 
+     * if(abc) {
+     * System.out.print("The result is: " + (thirdNum > secNum));
+     * }
+     * else {
+     * System.out.print("The result is: " + (secNum > firstNum && thirdNum > secNum));
+     * }
+     */
+
+    // 54.Accept 3 digits and return true if 2>= of them have the same rightmost digit.
+    /*
+     * System.out.print("Input 1st number: ");
+     * Scanner myScan = new Scanner(System.in);
+     * byte a = myScan.nextByte();
+     * 
+     * System.out.print("Input 2nd number: ");
+     * byte b = myScan.nextByte();
+     * 
+     * System.out.print("Input 3rd number: ");
+     * byte c = myScan.nextByte();
+     * myScan.close();
+     * 
+     * System.out.print("The result is: " + Checker(a,b,c));
+     */
+
+    // 55.Convert seconds to hours, minute and seconds.
+    /*System.out.println("Input seconds: ");
+    Scanner myScan = new Scanner(System.in);
+    short seconds = myScan.nextShort();
+    myScan.close();
     
-    System.out.print(myTime);
-    System.out.format("\nCurrent Date time: %tc%n\n", System.currentTimeMillis());
+    int hours = (seconds / 3600);
+    int minutes = ((seconds % 3600) / 60);
+    int secondsExtracted = ((seconds % 3600) % 60);
+    
+    System.out.println(hours + ":" + minutes + ":" + secondsExtracted);*/
+    
+    //56.
+    
+    //57.
   }
+
+  // Method for Task 54.
+  /*
+   * private final static boolean Checker(byte a,byte b, byte c) {
+   * byte aDigit = (byte) (a % 10);
+   * byte bDigit = (byte) (b % 10);
+   * byte cDigit = (byte) (c % 10);
+   * 
+   * return (aDigit == bDigit || bDigit == cDigit || aDigit == cDigit)
+   * }
+   */
+  /*
+   * Method for Task 51.
+   * private final static String Trimmer(String input) {
+   * StringBuilder stringB = new StringBuilder();
+   * int h = input.lastIndexOf(",");
+   * int k = h + 2;
+   * stringB.append(input);
+   * 
+   * stringB.delete(h, k);
+   * input = stringB.toString();
+   * return input;
+   * }
+   */
+
+  /*
+   * Method for Task 19 private static int addBinary(int mixer, int adder) { int output = 0;
+   * 
+   * if (mixer == adder) { int[] order = new int[20]; byte remainder = 0, i = 0;
+   * 
+   * while (mixer != 0 || adder != 0) { order[i++] = (mixer % 10 + adder % 10 + remainder) % 2;
+   * remainder = (byte) ((mixer % 10 + adder % 10 + remainder) / 2); mixer = mixer / 10; adder = adder
+   * / 10; }
+   * 
+   * if (remainder != 0) { order[i++] = remainder; }
+   * 
+   * --i;
+   * 
+   * while (i >= 0) { output = output * 10 + order[i--]; } } else { output = mixer + adder; }
+   * 
+   * 
+   * return output; }
+   */
+
 }
 
-/*
- * Method for Task 19 private static int addBinary(int mixer, int adder) { int output = 0;
- * 
- * if (mixer == adder) { int[] order = new int[20]; byte remainder = 0, i = 0;
- * 
- * while (mixer != 0 || adder != 0) { order[i++] = (mixer % 10 + adder % 10 + remainder) % 2;
- * remainder = (byte) ((mixer % 10 + adder % 10 + remainder) / 2); mixer = mixer / 10; adder = adder
- * / 10; }
- * 
- * if (remainder != 0) { order[i++] = remainder; }
- * 
- * --i;
- * 
- * while (i >= 0) { output = output * 10 + order[i--]; } } else { output = mixer + adder; }
- * 
- * 
- * return output; }
- */
+
