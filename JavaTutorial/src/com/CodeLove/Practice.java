@@ -921,21 +921,274 @@ final class Practice {
      */
 
     // 55.Convert seconds to hours, minute and seconds.
-    /*System.out.println("Input seconds: ");
-    Scanner myScan = new Scanner(System.in);
-    short seconds = myScan.nextShort();
-    myScan.close();
+    /*
+     * System.out.println("Input seconds: ");
+     * Scanner myScan = new Scanner(System.in);
+     * short seconds = myScan.nextShort();
+     * myScan.close();
+     * 
+     * int hours = (seconds / 3600);
+     * int minutes = ((seconds % 3600) / 60);
+     * int secondsExtracted = ((seconds % 3600) % 60);
+     * 
+     * System.out.println(hours + ":" + minutes + ":" + secondsExtracted);
+     */
+
+    // 56.Number of Integers between two numbers and divisible by a number.
+    /*
+     * byte a = 5, b = 20, c = 3;
+     * String result = "";
+     * for(int i = a;i<=b;i++) {
+     * if(i % c == 0) {
+     * result += i + ",";
+     * }
+     * }
+     * 
+     * System.out.print(result);
+     */
+
+    // 57.Accept and integer and count the factor.
+    /*
+     * System.out.print("Input a number: ");
+     * Scanner myScan = new Scanner(System.in);
+     * int a = myScan.nextInt();
+     * myScan.close();
+     * 
+     * int count = 0;
+     * for (int i = 1; i <= a; i++) {
+     * if(a % i == 0) {
+     * count++;
+     * }
+     * }
+     * System.out.print(count)
+     */
+
+    // 58.Capitalize first letter of each word in a sentence.
+    /*
+     * System.out.print("Input a sentence: ");
+     * Scanner myScan = new Scanner(System.in);
+     * String sentence = myScan.nextLine();
+     * myScan.close();
+     * 
+     * String[] words = sentence.split(" ");
+     * String sentenceMod = "";
+     * for(String i:words) {
+     * sentenceMod += i.substring(0,1).toUpperCase() + i.substring(1) + " ";
+     * }
+     * System.out.print(sentenceMod);
+     */
+
+    // 59.Convert sentence to lowercase.
+    /*
+     * System.out.println("Input a sentence: ");
+     * Scanner myScan = new Scanner(System.in);
+     * String sentence = myScan.nextLine();
+     * myScan.close();
+     * 
+     * System.out.println(sentence.toLowerCase());
+     */
+
+    // 60.Find the penultimate word of a sentence.
+    /*
+     * System.out.println("Input a sentence: ");
+     * Scanner myScan = new Scanner(System.in);
+     * String sentence = myScan.nextLine();
+     * myScan.close();
+     * 
+     * String[] words = sentence.split(" ");
+     * System.out.print(words[words.length - 2]);
+     */
+
+    // 61.Reverse a word.
+    /*
+     * System.out.println("Input a sentence: ");
+     * Scanner myScan = new Scanner(System.in);
+     * String word = myScan.next();
+     * myScan.close();
+     * 
+     * StringBuilder build = new StringBuilder();
+     * build.append(word);
+     * System.out.println(build.reverse());
+     */
+
+    // 62.Accept 3 integer and return true if one of them is 20> and less than the substraction of others.
+    /*
+     * System.out.print("Input 1st number: ");
+     * Scanner myScan = new Scanner(System.in);
+     * short a = myScan.nextShort();
+     * 
+     * System.out.print("Input 2nd number: ");
+     * short b = myScan.nextShort();
+     * 
+     * System.out.print("Input 3rd number: ");
+     * short c = myScan.nextShort();
+     * myScan.close();
+     * 
+     * System.out.println((Math.abs(a - b) >= 20 || Math.abs(b - c) >= 20 || Math.abs(c - a) >= 20));
+     */
+
+    // System.out.print("The result is: " + Checker(a, b, c));
+    // 63.Accept 2 integer return the largest value. If the two values are the same, return 0,
+    // return the smaller value if the two values have the same remainder when divided by 6.
+
+    /*
+     * System.out.print("Input 1st number: ");
+     * Scanner myScan = new Scanner(System.in);
+     * short firstNum = myScan.nextShort();
+     * 
+     * System.out.print("Input 2nd number: ");
+     * short secNum = myScan.nextShort();
+     * myScan.close();
+     * 
+     * if (firstNum != secNum) {
+     * System.out.println("Larger Value: " + Math.max(firstNum, secNum));
+     * } else {
+     * System.out.println("0");
+     * int divRes1 = (firstNum % 6);
+     * int divRes2 = (secNum % 6);
+     * if(divRes1 == divRes2) {
+     * System.out.println(Math.min(firstNum, secNum));
+     * }
+     * }
+     */
+
+    // 64.Accept two integer from 25 to 75 and return true if both numbers have common digit.
+    /*
+     * System.out.print("Input first number: ");
+     * Scanner myScan = new Scanner(System.in);
+     * int firstNum = myScan.nextInt();
+     * 
+     * System.out.print("Input second number: ");
+     * int secNum = myScan.nextInt();
+     * myScan.close();
+     * 
+     * System.out.println("Value is: " + Checker(firstNum,secNum));
+     */
+
+
+    // 65.Calculate modules of two numbers without any inbuilt modulus operator.
+    /*
+     * System.out.print("Input first number: ");
+     * Scanner myScan = new Scanner(System.in);
+     * int firstNum = myScan.nextInt();
+     * 
+     * System.out.print("Input first number: ");
+     * int secNum = myScan.nextInt();
+     * myScan.close();
+     * 
+     * int dividend = (firstNum/secNum);
+     * int value = (dividend * secNum);
+     * System.out.println(firstNum - value);
+     */
+
+    // 66.Compute the sum of the first 100 prime numbers.
+    /*
+     * int sum = 1;
+     * int ctr = 0;
+     * int n = 1;
+     * String primeNumbers = "2 ";
+     * 
+     * while (ctr < 100) {
+     * n++;
+     * if (n % 2 != 0) {
+     * // check if the number is even
+     * if (is_Prime(n)) {
+     * primeNumbers = primeNumbers + n + " ";
+     * }
+     * }
+     * ctr++;
+     * }
+     * System.out.println("\nSum of the prime numbers till 100: " + primeNumbers);
+     */
+
+
+    // 67.Insert a word in the middle of a String.Python "Tutorial" 3.0
+    /*
+     * StringBuilder build = new StringBuilder();
+     * String sentence = "Python 3.0";
+     * String[] words = sentence.split(" ");
+     * build.append(words[0] + " Tutorial " + words[1]);
+     * System.out.println(build.toString());
+     */
+
+    // 68.Write 4 copies of the last 3 character of an original string. Length of original string must be more than 3
+    // characters.
+    /*
+     * String original = "Python Tutorial 3.0";
+     * String changed = original.substring(original.length() - 3);
+     * 
+     * original = "";
+     * for(byte i = 0;i<4;i++) {
+     * original += changed;
+     * }
+     * 
+     * System.out.println(original);
+     */
+
+    // 69.Extract the first half of an even length.
+    /*
+     * String sentence = "Python";
+     * sentence = sentence.substring(0,sentence.length()/2);
+     * System.out.println(sentence);
+     */
+
+    // 70.Create a String in the form short + long + short from two String. The Strings must not have same length.
+    /*String python = "Python";
+    String tutorial = "Tutorial";
+
+    byte large = (byte) Math.max(python.length(), tutorial.length());
+    if (large == tutorial.length()) {
+      System.out.println(python+tutorial+python);
+    } else {
+      System.out.println(tutorial+python+tutorial);
+    }*/
+
+    // 71.Join two Strings with their first character removed.
+    /*
+     * String python = "Python";
+     * String tutorial = "Tutorial";
+     * StringBuilder build = new StringBuilder();
+     * build.append(python);
+     * build.deleteCharAt(0);
+     * byte length =(byte) build.length();
+     * build.append(tutorial);
+     * build.deleteCharAt(length);
+     * System.out.print(build.toString());
+     */
     
-    int hours = (seconds / 3600);
-    int minutes = ((seconds % 3600) / 60);
-    int secondsExtracted = ((seconds % 3600) % 60);
+    //72.
     
-    System.out.println(hours + ":" + minutes + ":" + secondsExtracted);*/
-    
-    //56.
-    
-    //57.
+    //73.
   }
+
+  // Method for Task 66.
+  /*
+   * public static boolean is_Prime(int n) {
+   * for (int i = 3; i * i <= n; i += 2) {
+   * if (n % i == 0) {
+   * return false;
+   * }
+   * }
+   * return true;
+   * }
+   */
+
+  // Method for Task 65.
+
+  /*
+   * private static final boolean Checker(int firstNum,int secNum) {
+   * if((25 <= firstNum && firstNum <= 75) && (25 <= secNum && secNum <= 75)) {
+   * int x = (firstNum % 10);
+   * int y = (secNum % 10);
+   * firstNum = firstNum/10;
+   * secNum = secNum/10;
+   * return (firstNum == secNum || x == y || firstNum == y || secNum == x);
+   * }
+   * else {
+   * return false;
+   * }
+   * }
+   */
 
   // Method for Task 54.
   /*
