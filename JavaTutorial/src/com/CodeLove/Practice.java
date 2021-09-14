@@ -7,6 +7,7 @@ import java.io.File;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Scanner;
 
 final class Practice {
@@ -1133,15 +1134,17 @@ final class Practice {
      */
 
     // 70.Create a String in the form short + long + short from two String. The Strings must not have same length.
-    /*String python = "Python";
-    String tutorial = "Tutorial";
-
-    byte large = (byte) Math.max(python.length(), tutorial.length());
-    if (large == tutorial.length()) {
-      System.out.println(python+tutorial+python);
-    } else {
-      System.out.println(tutorial+python+tutorial);
-    }*/
+    /*
+     * String python = "Python";
+     * String tutorial = "Tutorial";
+     * 
+     * byte large = (byte) Math.max(python.length(), tutorial.length());
+     * if (large == tutorial.length()) {
+     * System.out.println(python+tutorial+python);
+     * } else {
+     * System.out.println(tutorial+python+tutorial);
+     * }
+     */
 
     // 71.Join two Strings with their first character removed.
     /*
@@ -1155,10 +1158,117 @@ final class Practice {
      * build.deleteCharAt(length);
      * System.out.print(build.toString());
      */
+
+    // 72.Create new string taking first 3 characters from given string.If given string length less than 3 use '#' as
+    // substitute.
+    /*
+     * String string = "Py";
+     * int length = string.length();
+     * 
+     * if (length > 4) {
+     * System.out.println(string.substring(0, 3).toString());
+     * } else {
+     * byte ash = (byte) Math.abs(length - 3);
+     * 
+     * for (byte i = 0; i < ash; i++) {
+     * string += "#";
+     * }
+     * 
+     * System.out.println(string);
+     * }
+     */
+
+    // 73.Create new string taking first and last characters from two given strings. if length of either string is 0 use
+    // '#'.
+    /*
+     * String python = "";
+     * String tutorial = "Tutorial";
+     * String result = "";
+     * if (python.length() == 0 || tutorial.length() == 0) {
+     * if(python.length() == 0) {
+     * result = "#" + tutorial.substring(0,1);
+     * System.out.println(result);
+     * }
+     * else
+     * {
+     * result = python.substring(0,1) + "#";
+     * System.out.println(result);
+     * }
+     * } else {
+     * result += python.substring(0, 1);
+     * result += tutorial.substring(tutorial.length() - 1);
+     * System.out.println(result);
+     * }
+     */
+
+    // 74.Test 10 appears in the first or last element of an integer array and array must be more than or equal to 2.
+    /*
+     * byte[] numbers = {10, 5, 4, 3, 2, 5, 6, 4};
+     * if (numbers.length >= 2) {
+     * System.out.println((numbers[0] == 10 || numbers[numbers.length - 1] == 10));
+     * } else {
+     * System.out.println("false");
+     * }
+     */
+
+    // 75.Test first and last element of an integer array are same and array must be more than or equal to 2.
+    /*
+     * byte[] numbers = {5,10,15,20};
+     * if(numbers.length >= 2) {
+     * byte firstInt = numbers[0];
+     * byte lastInt = numbers[numbers.length - 1];
+     * System.out.println(firstInt == lastInt);
+     * }
+     * else
+     * {
+     * System.out.println("false");
+     * }
+     */
+
+    // 76.Test first and last element of two integer arrays are the same and array must be more than or equal to 2.
+    /*
+     * byte[] number1 = {1,2,3,4,5,6};
+     * byte[] number2 = {7,8,9,10,11};
+     * System.out.println((number1[0] == number2[0] && number1[number1.length - 1] == number2[number2.length - 1]));
+     */
+
+    // 77.Create an array with length of 2 from 2 integer arrays with 3 elements and the new array will contain the
+    // first and last elements from the 2 arrays.
+    /*
+     * byte[] number1 = {1, 2, 3};
+     * byte[] number2 = {7, 8, 9};
+     * byte[] newArray = {number1[0],number2[number2.length-1]};
+     * System.out.println(newArray[0] + "," + newArray[1]);
+     */
+
+    // 78.Test integer array length 2 contains a 4 or a 7.
+    /*
+     * int[] number1 = {1, 2};
+     * System.out.println(Arrays.stream(number1).anyMatch(x -> (x == 4)||(x == 7)));
+     */
+
+    // 79.Rotate an integer array length 3 in left direction.
+    /*
+     * int[] number1 = {1, 2, 3};
+     * int[] number2 = {number1[1], number1[2], number1[0]};
+     * System.out.println(Arrays.toString(number2));
+     */
+
+    // 80.Get larger value between first and last element of an integer array with length 3.
+    /*
+     * int[] number1 = {1, 2, 3};
+     * System.out.println(Math.max(number1[0], number1[number1.length-1]));
+     */
+
+    // 81.Swap first and last element of an array with length of 3 and create a new array.
+    /*int[] number1 = {1, 2, 3};
+    int[] number2 = {number1[number1.length - 1], number1[1], number1[0]};
+    System.out.println(Arrays.toString(number2));*/
     
-    //72.
+    //82.
     
-    //73.
+    //83.
+    
   }
 
   // Method for Task 66.
