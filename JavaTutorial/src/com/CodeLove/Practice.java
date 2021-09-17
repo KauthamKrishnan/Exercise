@@ -9,6 +9,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
+import java.util.concurrent.TimeUnit;
 
 final class Practice {
 
@@ -1261,13 +1262,238 @@ final class Practice {
      */
 
     // 81.Swap first and last element of an array with length of 3 and create a new array.
-    /*int[] number1 = {1, 2, 3};
-    int[] number2 = {number1[number1.length - 1], number1[1], number1[0]};
-    System.out.println(Arrays.toString(number2));*/
-    
-    //82.
-    
-    //83.
+    /*
+     * int[] number1 = {1, 2, 3};
+     * int[] number2 = {number1[number1.length - 1], number1[1], number1[0]};
+     * System.out.println(Arrays.toString(number2));
+     */
+
+    // 82.Find largest element between first, last and middle values from an integer array.
+    /*
+     * int[] number1 = {5,4,3,2,1};
+     * int max = 0;
+     * for(int number:number1) {
+     * if(number > max) {
+     * max = number;
+     * }
+     * }
+     * System.out.println(max);
+     */
+
+    // 83.Multiply corresponding elements of two integer arrays.
+    /*
+     * byte[] number1 = {1, 3, -5, 4};
+     * byte[] number2 = {1, 4, -5, -2};
+     * String numbers = "";
+     * for(byte i = 0;i < number1.length;i++) {
+     * numbers += number1[i] * number2[i] + " ";
+     * }
+     * 
+     * System.out.println(numbers);
+     */
+
+    // 84.Take last 3 characters from a given string and add the 3 characters at front and back of the string.String >=
+    // 3
+    /*
+     * String word = "Python";
+     * String substring = word.substring(word.length()-3);
+     * System.out.println(substring + word + substring);
+     */
+
+    // 85.Check if a string starts with a specified word.
+    /*
+     * String sentence = "Hello how are you?";
+     * System.out.println(sentence.startsWith("Hello"));
+     */
+
+    // 86.Start with integer n,divide n by 2 if n is even || add 1 if n is odd, repeat the process until n = 1;
+    /*
+     * byte n = 5;
+     * 
+     * while (n != 1) {
+     * byte remainder = (byte) (n % 2);
+     * if (0 == remainder) {
+     * n = (byte) (n / 2);
+     * } else {
+     * n += 1;
+     * }
+     * }
+     */
+
+    // 87.Read an integer and calculate the sum of its digits.
+    /*
+     * String[] numbers = {"zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"};
+     * byte num = 89;
+     * byte addedNum = 0;
+     * String numbersSpell = "";
+     * while (num != 0) {
+     * byte digit = (byte) (num % 10);
+     * num = (byte) (num / 10);
+     * addedNum += digit;
+     * numbersSpell = numbers[digit] + " " + numbersSpell;
+     * }
+     * System.out.println(addedNum);
+     * System.out.println(numbersSpell);
+     */
+
+    // 88.Get current system environment and system properties.
+    /*
+     * System.out.println(System.getenv());
+     * System.out.println(System.getProperties());
+     */
+
+    // 89.Check whether a security manager already established for current application or not.
+    // System.out.println(System.getSecurityManager());
+
+    // 90.Get the value of the environment variable PATH, TEMP, USERNAME
+    /*
+     * System.out.println(System.getenv("PATH"));
+     * System.out.println(System.getenv("TEMP"));
+     * System.out.println(System.getenv("USERNAME"));
+     */
+
+    // 91.Measure how long some code takes to execute in nanoseconds
+    /*
+     * long start = System.nanoTime();
+     * System.out.println(System.getenv("PATH"));
+     * System.out.println(System.getenv("TEMP"));
+     * System.out.println(System.getenv("USERNAME"));
+     * long end = System.nanoTime();
+     * long duration = (end - start);
+     * System.out.println("Time elapsed: " + duration + " nanoseconds");
+     */
+
+    // 92.Count the number of even and odd elements in a given integer array.
+    /*
+     * int[] numbers = {1,2,3,4,5,6,7,8,9,10};
+     * int even = 0, odd = 0;
+     * for(int number:numbers) {
+     * int value = (number % 2);
+     * 
+     * if(value == 0) {
+     * even++;
+     * }
+     * else {
+     * odd++;
+     * }
+     * }
+     * System.out.print("Even: " + even + "\nOdd: " + odd);
+     */
+
+    // 93.Test if integer array contains an element 10 next to 10 or an element 20 next to 20 but not both.
+    /*
+     * int[] numbers = {5,10,10,20,25,30};
+     * boolean number1010 = false,number2020 = false;
+     * if(Arrays.stream(numbers).anyMatch(x -> x == 10)) {
+     * int i = Arrays.binarySearch(numbers,10);
+     * number1010 = (numbers[--i] == 10);
+     * }
+     * 
+     * if(Arrays.stream(numbers).anyMatch(x -> x == 20)) {
+     * int i = Arrays.binarySearch(numbers,20);
+     * number2020 = (numbers[--i] == 20);
+     * }
+     * 
+     * System.out.println(String.valueOf(number1010 != number2020));
+     */
+    // 94.Rearrange all elements in a given integer array so that all odd numbers come before all even numbers.
+    /*
+     * int[] numbers = {1,2,3,4,5,6,7,8,9,10};
+     * byte secRemainder = 0, j = 0;
+     * 
+     * System.out.println("Original Array: " + Arrays.toString(numbers));
+     * 
+     * for (byte i = 0; i < numbers.length - 1; i++) {
+     * byte remainder = (byte) (numbers[i] % 2);
+     * if (remainder == 0) {
+     * if (j == i + 1 || ((j > 0) && (i > 0) && j == i))
+     * break;
+     * j = 1;
+     * while (secRemainder == 0) {
+     * secRemainder = (byte) (numbers[numbers.length - j] % 2);
+     * j++;
+     * }
+     * secRemainder = 0;
+     * --j;
+     * j = (byte) (numbers.length - j);
+     * int temp = numbers[j];
+     * numbers[j] = numbers[i];
+     * numbers[i] = temp;
+     * }
+     * }
+     * 
+     * System.out.println("Modifed Array: " + Arrays.toString(numbers));
+     */
+
+    // 95.Create string array through n-1.(Length # 0)
+    /*
+     * byte n = 5;
+     * String[] numbers = new String[n];
+     * 
+     * for(byte i = 0;i<n;i++) {
+     * numbers[i] = String.valueOf(i);
+     * }
+     * System.out.println(Arrays.toString(numbers));
+     */
+
+    // 96.Check if there is a 10 in given integer array with a 20 somewhere later in the array.
+    /*
+     * int[] numbers = {5, 10, 15, 20, 25};
+     * 
+     * for (byte i = 0; i < (byte) (numbers.length - 1); i++) {
+     * if (numbers[i] == 10) {
+     * for (byte j = ++i; j < (numbers.length - 1); j++) {
+     * if (numbers[j] == 20) {
+     * System.out.println("True");
+     * break;
+     * }
+     * }
+     * break;
+     * }
+     * }
+     */
+
+    // 97.Check integer array contains a specified number next to each other || there are 2 same specified number
+    // separated by 1 element
+    /*
+     * int[] numbers = {10, 10, 15, 10, 20, 10, 50};
+     * 
+     * int number = 50;
+     * 
+     * for(int i = 0; i<numbers.length-1;i++) {
+     * if((numbers[i] == number && numbers[i+1] == number) || (numbers[i] == number && numbers[i+2] == number)) {
+     * System.out.println("True");
+     * break;
+     * }
+     * }
+     */
+
+    // 98.check 20 appears 3 times && no 20s are next to each other in an integer array.
+    /*
+     * int[] numbers = {10, 20, 10, 20, 40, 13, 20};
+     * byte count = 0;
+     * boolean result = false;
+     * for (byte i = 0; i < numbers.length; i++) {
+     * if (numbers[i] == 20)
+     * if (numbers.length == i+1||(numbers[i+1] != 20)) {
+     * count++;
+     * } else {
+     * result = false;
+     * break;
+     * }
+     * 
+     * if (count >= 3) {
+     * result = true;
+     * break;
+     * }
+     * }
+     * 
+     * System.out.println(result);
+     */
+
+    // 99.Check specified number appears in every pair of adjacent element in given integer array.
+
+    // 100.Count 2 elements of given 2 integer arrays with same length differ by 1 or less.
     
   }
 
