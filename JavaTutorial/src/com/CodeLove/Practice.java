@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
+import java.util.stream.IntStream;
 
 final class Practice {
 
@@ -1492,8 +1493,209 @@ final class Practice {
      */
 
     // 99.Check specified number appears in every pair of adjacent element in given integer array.
+    /*
+     * int[] numbers = {10, 15, 10, 20, 40, 20, 50};
+     * int number = 20;
+     * boolean result = false;
+     * 
+     * for(byte i = 1; i < numbers.length;i++) {
+     * if(numbers[i] == number || numbers[i-1] == number)
+     * result = true;
+     * else {
+     * result = false;
+     * break;
+     * }
+     * }
+     * 
+     * System.out.println(result);
+     */
 
     // 100.Count 2 elements of given 2 integer arrays with same length differ by 1 or less.
+    /*
+     * int[] number1 = {10, 11, 10, 20, 43, 20, 50}, number2 = {10, 13, 11, 20, 44, 30, 50};
+     * int count = 0;
+     * for (byte i = 0; i < number1.length; i++) {
+     * if (Math.abs(number1[i] - number2[i]) == 1) {
+     * count++;
+     * }
+     * }
+     * System.out.println(count);
+     */
+
+    // 101.Check if the number of 10 is greater than number to 20s in given integer array.
+    /*
+     * int[] numbers = {10, 11, 10, 20, 43, 20, 50};
+     * int count10 = 0, count20 = 0;
+     * for (int i = 0; i < numbers.length; i++) {
+     * if (numbers[i] == 10)
+     * count10++;
+     * 
+     * if (numbers[i] == 20)
+     * count20++;
+     * }
+     * 
+     * System.out.println(count10 > count20);
+     */
+
+
+    // 102.Check integer array contains 10s or 30s.
+    /*
+     * int[] numbers = {11, 11, 13, 31, 45, 20, 33, 53};
+     * for (byte i = 0; i < numbers.length; i++) {
+     * if (numbers[i] == 10 || numbers[i] == 30) {
+     * System.out.println("True");
+     * break;
+     * }
+     * }
+     */
+
+    // 103.Create a new array from given integer array, take all element after 10.
+    /*
+     * int[] numbers = {11, 10, 13, 10, 45, 20, 33, 53};
+     * int index = 0;
+     * boolean has10 = false;
+     * for (int i = numbers.length - 1; i != 0; i--) {
+     * if (numbers[i] == 10) {
+     * index = i;
+     * has10 = true;
+     * break;
+     * }
+     * }
+     * 
+     * if (has10) {
+     * int[] newNumbers = Arrays.copyOfRange(numbers, index + 1, numbers.length);
+     * System.out.println(Arrays.toString(newNumbers));
+     * }
+     */
+
+
+
+    // 104.Create a new array from given integer array, take all element before 10.
+    /*
+     * int[] numbers = {11, 10, 13, 10, 45, 20, 33, 53};
+     * int j = 0;
+     * boolean has10 = false;
+     * for (int i = numbers.length - 1; i > 0; i--) {
+     * if(numbers[i] == 10) {
+     * j = i;
+     * has10 = true;
+     * break;
+     * }
+     * }
+     * 
+     * if(has10) {
+     * int[] newNumbers = Arrays.copyOfRange(numbers, 0, j);
+     * System.out.println(Arrays.toString(newNumbers));
+     * }
+     */
+
+    // 105.Check if a group of numbers(l) at the start and the end of given array are same.
+    /*
+     * int[] numbers = {30, 35, 5, 10, 15, 20, 25, 33, 35};
+     * int[] groupNumbers = {30, 35};
+     * boolean result = false;
+     * 
+     * if ((numbers[0] == groupNumbers[0]) && (numbers[1] == groupNumbers[1]))
+     * result = true;
+     * else
+     * result = false;
+     * 
+     * if ((numbers[numbers.length - 1] == groupNumbers[groupNumbers.length - 1])
+     * && (numbers[numbers.length - 2] == groupNumbers[groupNumbers.length - 2]))
+     * result = true;
+     * else
+     * result = false;
+     * 
+     * System.out.println(result);
+     */
+
+    // 106.Create new array that is left shifted from given integer array.
+    /*
+     * int[] numbers = {11, 15, 13, 10, 45, 20};
+     * System.out.println(Arrays.toString(numbers));
+     * 
+     * int temp = 0;
+     * temp = numbers[0];
+     * 
+     * for(byte i = 0; i < numbers.length-1;i++) {
+     * numbers[i] = numbers[i+1];
+     * }
+     * 
+     * numbers[numbers.length-1] = temp;
+     * 
+     * System.out.println(Arrays.toString(numbers));
+     */
+
+    // 107.Check integer array contain 3 increasing adjacent numbers.
+    /*
+     * int[] numbers = {10, 12, 13, 14, 15, 20};
+     * for (byte i = 3; i < numbers.length; i++) {
+     * if ((numbers[i - 3] + 1 == numbers[i - 2]) && (numbers[i - 2] + 1 == numbers[i - 1]) && (numbers[i-1] + 1 ==
+     * numbers[i])) {
+     * System.out.println("True");
+     * break;
+     * }
+     * }
+     */
+
+
+    // 108.Add all the digits of given positive integer until the result has single digit.
+    /*
+     * int number = 567;
+     * int sum = 0;
+     * 
+     * while (number > 0) {
+     * sum += number % 10;
+     * number = number / 10;
+     * }
+     * 
+     * System.out.println(sum);
+     */
+
+    // 109.Form a staircase shape of n coins where every k-th row must have exactly k coins.
+    /*
+     * System.out.println("Input an integer: ");
+     * Scanner myScan = new Scanner(System.in);
+     * int number = myScan.nextInt();
+     * myScan.close();
+     * 
+     * for (int i = 1; number > 0; i++) {
+     * int counter = number - i;
+     * if (counter < 0) {
+     * while(number > 0) {
+     * System.out.print("$");
+     * number--;
+     * }
+     * } else {
+     * int repeat = number - counter;
+     * while (repeat > 0) {
+     * System.out.print("$");
+     * repeat--;
+     * }
+     * System.out.print("\n");
+     * number = counter;
+     * }
+     * 
+     * }
+     */
+
+    // 110.Check given integer is power of 4 or not. num = 64, true. num = 6, false.
+    /*System.out.println("Input a number: ");
+    Scanner myScan = new Scanner(System.in);
+    int number = myScan.nextInt();
+    myScan.close();
+
+    for (int i = 4; i <= number; i *= 4) {
+      if (i == number) {
+        System.out.println("True");
+        break;
+      }
+
+    }*/
+
+    //111.Add two numbers without using any arithmetic.
+    
+    //112.Compute the number of trailing zeros in a factorial.
     
   }
 
