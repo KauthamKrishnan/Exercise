@@ -11,6 +11,7 @@ import java.util.Arrays;
 import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
 import java.util.stream.IntStream;
+import java.util.stream.Stream;
 
 final class Practice {
 
@@ -1680,24 +1681,172 @@ final class Practice {
      */
 
     // 110.Check given integer is power of 4 or not. num = 64, true. num = 6, false.
-    /*System.out.println("Input a number: ");
-    Scanner myScan = new Scanner(System.in);
-    int number = myScan.nextInt();
-    myScan.close();
+    /*
+     * System.out.println("Input a number: ");
+     * Scanner myScan = new Scanner(System.in);
+     * int number = myScan.nextInt();
+     * myScan.close();
+     * 
+     * for (int i = 4; i <= number; i *= 4) {
+     * if (i == number) {
+     * System.out.println("True");
+     * break;
+     * }
+     * 
+     * }
+     */
 
-    for (int i = 4; i <= number; i *= 4) {
-      if (i == number) {
-        System.out.println("True");
-        break;
-      }
+    // 111.Add two numbers without using any arithmetic.
+    /*
+     * System.out.println("Input first number: ");
+     * Scanner myScan = new Scanner(System.in);
+     * int firstNum = myScan.nextInt();
+     * int secNum = myScan.nextInt();
+     * myScan.close();
+     * 
+     * //Basically they using the bits to compute this which called "Bitwise".
+     * 
+     * while(secNum != 0){
+     * int carry = firstNum & secNum;
+     * firstNum = firstNum ^ secNum;
+     * secNum = carry << 1;
+     * }
+     * 
+     * System.out.println(firstNum);
+     */
 
-    }*/
+    // 112.Compute the number of trailing zeros in a factorial.
+    /*
+     * System.out.println("Input a number: ");
+     * Scanner myScan = new Scanner(System.in);
+     * long number = myScan.nextLong();
+     * myScan.close();
+     * int count = 0;
+     * for (int temp =(int) number; temp > 1 ; temp--) {
+     * number *= (temp-1);
+     * }
+     * 
+     * long tempNumber = number;
+     * while(tempNumber % 10 == 0) {
+     * count++;
+     * tempNumber = tempNumber /10;
+     * }
+     * System.out.print("Factorial Value: " + number + "\n" + "Trailing Zero: " + count);
+     */
 
-    //111.Add two numbers without using any arithmetic.
+    // For large numbers.
+    /*
+     * Scanner in = new Scanner(System.in);
+     * System.out.print("Input a number: ");
+     * int n = in.nextInt();
+     * in.close();
+     * int n1 = n;
+     * long ctr = 0;
+     * while (n != 0) {
+     * ctr += n / 5;
+     * n /= 5;
+     * }
+     * System.out.printf("Number of trailing zeros of the factorial %d is %d ", n1, ctr);
+     */
+
+    // 113.Merge 2 given sorted integer array and create a new sorted array.
+    /*
+     * int[] number1 = {1, 2, 3, 4}, number2 = {2, 5, 7, 8};
+     * int number1Len = number1.length, number2Len = number2.length;
+     * 
+     * int[] newNumber = new int[number1Len + number2Len];
+     * System.arraycopy(number1, 0, newNumber, 0, number1Len);
+     * System.arraycopy(number2, 0, newNumber, number1Len, number2Len);
+     * Arrays.sort(newNumber);
+     * System.out.println(Arrays.toString(newNumber));
+     */
+
+    // String newNumbers = Arrays.sort(mergedArrays);
+    // 114.Given a string and an offset, rotate string by offset(rotate from left to right).
+
+    /*
+     * String word = "Harvent";
+     * int offset = 3, length = word.length();
+     * int firstCut = length - offset;
+     * String endCutString = word.substring(firstCut);
+     * word = word.replace(endCutString, "");
+     * word = endCutString + word;
+     * System.out.println(word);
+     */
+
+    /*
+     * String str = "abcdef";
+     * char[] A = str.toCharArray();
+     * int offset = 3;
+     * int len = A.length;
+     * offset %= len;
+     * reverse(A, 0, len - offset - 1);
+     * reverse(A, len - offset, len - 1);
+     * reverse(A, 0, len - 1);
+     * System.out.println("\n" + Arrays.toString(A));
+     */
+
+    // 115.Check if a positive number is a palindrome or not.
+    /*
+     * int number = 1531;
+     * String stringNumber = Integer.toString(number);
+     * StringBuilder build = new StringBuilder();
+     * build.append(number).reverse();
+     * 
+     * System.out.println(stringNumber.equals(build.toString()));
+     */
+
+
+    // 116.Iterate the integers from 1 to 100. x3 print "Fizz" instead of the number. Print "Buzz" for x5. When number
+    // is divided by both 3 and 5, print "fizz buzz".
+
+    /*
+     * for (byte i = 1; i <= 100; i++) {
+     * if (i % 3 == 0 && i % 5 == 0)
+     * System.out.println(i + ": " + "Fizz Buzz");
+     * else if(i % 3 == 0)
+     * System.out.println(i + ": " + "Fizz");
+     * else if(i % 5 == 0)
+     * System.out.println(i + ": " + "Buzz");
+     * }
+     */
+
+    // 117.Compute the square root of given integer.
+    /*
+     * System.out.print("Input a number: ");
+     * Scanner scan = new Scanner(System.in);
+     * int number = scan.nextInt();
+     * scan.close();
+     * 
+     * System.out.println((int) Math.sqrt(number));
+     */
+
+    // 118.Get the first occurrence(Position starts from 0) of a string with a given string.
+    /*String word = "Python", searchedString = "Py";
+    int len = searchedString.length() - 1;
+    int index = word.indexOf(searchedString);
+
+    System.out.println(index + len);*/
     
-    //112.Compute the number of trailing zeros in a factorial.
+    //119.Get first occurrence(Position starts from 0) of an element in given array.
+    
+    
+    //120.Search a value in an m x n matrix.
     
   }
+
+  // Method for Task 114.
+  /*
+   * private static void reverse(char[] str, int start, int end) {
+   * while (start < end) {
+   * char temp = str[start];
+   * str[start] = str[end];
+   * str[end] = temp;
+   * start++;
+   * end--;
+   * }
+   * }
+   */
 
   // Method for Task 66.
   /*
