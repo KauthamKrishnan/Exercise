@@ -8,12 +8,47 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.LinkedList;
+import java.util.Optional;
 import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
-final class Practice {
+class Practice {
+
+  static Node head;
+
+  static class Node {
+    int data;
+    Node nextNode;
+
+    Node(int d) {
+      data = d;
+      nextNode = null;
+    }
+  }
+
+  Node reverse(Node node) {
+    Node prevNode = null, currNode = node, nextNode = null;
+
+    while (currNode != null) {
+      nextNode = currNode.nextNode;
+      currNode.nextNode = prevNode;
+      prevNode = currNode;
+      currNode = nextNode;
+    }
+
+    node = prevNode;
+    return node;
+  }
+
+  void printList(Node node) {
+    while (node != null) {
+      System.out.print(node.data + " ");
+      node = node.nextNode;
+    }
+  }
 
   public static void main(String[] args) {
     // 1.Print text.
@@ -1822,18 +1857,379 @@ final class Practice {
      */
 
     // 118.Get the first occurrence(Position starts from 0) of a string with a given string.
-    /*String word = "Python", searchedString = "Py";
-    int len = searchedString.length() - 1;
-    int index = word.indexOf(searchedString);
+    /*
+     * String word = "Python", searchedString = "Py";
+     * int len = searchedString.length() - 1;
+     * int index = word.indexOf(searchedString);
+     * 
+     * System.out.println(index + len);
+     */
 
-    System.out.println(index + len);*/
-    
-    //119.Get first occurrence(Position starts from 0) of an element in given array.
-    
-    
-    //120.Search a value in an m x n matrix.
-    
+    // 119.Get first occurrence(Position starts from 0) of an element in given array.
+    /*
+     * int[] numbers = {2, 4, 6, 3, 7};
+     * 
+     * for (byte i = 0; i < numbers.length; i++) {
+     * if (numbers[i] == 7) {
+     * System.out.println("Position of 7: " + i);
+     * break;
+     * }
+     * 
+     * }
+     */
+
+    // 120.Search a value in an m x n matrix.
+    /*
+     * int target = 12, temp = 0;
+     * for (int n = 0; n <= target; n++) {
+     * System.out.println("");
+     * n = temp;
+     * if (target == temp)
+     * break;
+     * for (int m = 1; m < 4; m++) {
+     * temp = m + n;
+     * System.out.print(m + n);
+     * if (target == m + n)
+     * break;
+     * }
+     * }
+     */
+
+    // Reference Material (Does not satisfy the question properly.)
+    /*
+     * int target = 0;
+     * int[][] matrix = new int[3][3];
+     * for (int row = 0; row < 3; row++)
+     * for (int col = 0; col < 3; col++)
+     * matrix[row][col] = (1 + row * 3 + col);
+     * 
+     * for (int row = 0; row < 3; row++) {
+     * for (int col = 0; col < 3; col++) {
+     * System.out.print(matrix[row][col] + " ");
+     * if (col == 2)
+     * System.out.println();
+     * }
+     * }
+     * 
+     * System.out.println(Boolean.toString(searchMatrix(matrix, target)));
+     */
+
+    // 121.Reverse a given Linked List.
+    /*
+     * Practice list = new Practice();
+     * head = new Node(20);
+     * head.nextNode = new Node(40);
+     * head.nextNode.nextNode = new Node(60);
+     * head.nextNode.nextNode.nextNode = new Node(80);
+     * 
+     * 
+     * System.out.println("Original Linked List: ");
+     * list.printList(head);
+     * head = list.reverse(head);
+     * System.out.println("");
+     * System.out.println("Reversed Linked List: ");
+     * list.printList(head);
+     */
+
+    // 122.Find a contiguous subarray with largest sum from given integer array
+    /*
+     * int[] numbers = {-2, 1, -3, 4, -1, 2, 1, -5, 4};
+     * 
+     * int max = numbers[0], sum = max, start = 0, end = 0;
+     * for (int i = 1; i < numbers.length; i++) {
+     * if (numbers[i] > sum + numbers[i]) {
+     * sum = numbers[i];
+     * start = i;
+     * } else {
+     * sum = sum + numbers[i];
+     * }
+     * if(max < sum) {
+     * max = sum;
+     * end = i;
+     * }
+     * }
+     * 
+     * int[] newNumbers = Arrays.copyOfRange(numbers, start, end + 1);
+     * 
+     * 
+     * System.out.println("Range of subarray: " + Arrays.toString(newNumbers));
+     * System.out.println("Total value: " + max);
+     */
+
+    // 123.Find the subarray with smallest sum from given integer array.
+    /*
+     * int[] numbers = {-2, 1, -3, 4};
+     * 
+     * int min = numbers[0], sum = min, start = 0, end = 0;
+     * 
+     * for(int i = 1; i < numbers.length; i++) {
+     * if(numbers[i] < sum + numbers[i]) {
+     * sum = numbers[i];
+     * start = i;
+     * }
+     * else
+     * sum = sum + numbers[i];
+     * 
+     * if(min > sum) {
+     * min = sum;
+     * end = i;
+     * }
+     * }
+     * 
+     * int[] newNumbers = Arrays.copyOfRange(numbers, start, end + 1);
+     * 
+     * System.out.println("Range of subarray: " + Arrays.toString(newNumbers));
+     * System.out.println("Total value: " + min);
+     */
+    // 124.Find the index of a value in a sorted array. If the value does not find return the index where it would be if
+    // it were inserted in order
+    /*
+     * int[] numbers = {1, 2, 4, 5, 7};
+     * int target = 6;
+     * int result = 0;
+     * 
+     * if (target == 0)
+     * if (numbers[target] != target) {
+     * System.out.println("The position of the 0 should be 0");
+     * System.exit(0);
+     * } else {
+     * System.out.print("The position of 0 is 0");
+     * System.exit(0);
+     * }
+     * 
+     * for (byte i = 0; i < numbers.length; i++) {
+     * if (numbers[i] == target) {
+     * System.out.print("The position of " + target + " is " + i);
+     * result = 1;
+     * System.exit(0);
+     * }
+     * 
+     * if (numbers[i] > target) {
+     * result = 2;
+     * break;
+     * }
+     * 
+     * }
+     * 
+     * if (result == 2) {
+     * for (byte j = 0; j < numbers.length; j++) {
+     * if (numbers[j] > target && target > numbers[j - 1]) {
+     * System.out.println("The position of the " + target + " should be " + j);
+     * break;
+     * }
+     * }
+     * }
+     * else {
+     * System.out.println("The position of the " + target + " should be " + numbers.length);
+     * }
+     */
+
+    // 125.Get the preorder traversal of it's nodes values of a given binary tree.
+
+    /*
+     * class PreOrder {
+     * int key;
+     * PreOrder left, right;
+     * 
+     * PreOrder(int item) {
+     * key = item;
+     * left = right = null;
+     * }
+     * 
+     * static final void traverse(PreOrder tree) {
+     * if (tree == null)
+     * return;
+     * 
+     * System.out.print(tree.key + " ");
+     * traverse(tree.left);
+     * traverse(tree.right);
+     * }
+     * }
+     * 
+     * PreOrder tree = new PreOrder(10);
+     * tree.left = new PreOrder(20);
+     * tree.right = new PreOrder(30);
+     * tree.left.left = new PreOrder(40);
+     * tree.left.right = new PreOrder(50);
+     * PreOrder.traverse(tree);
+     */
+
+    // 126.Get the Inorder traversal of its nodes' values of a given binary tree.
+    /*
+     * class InOrder{
+     * int key;
+     * InOrder left,right;
+     * 
+     * InOrder(int item){
+     * key = item;
+     * left = right = null;
+     * }
+     * 
+     * final static void traverse(InOrder tree) {
+     * if(tree == null)
+     * return;
+     * traverse(tree.left);
+     * System.out.println(tree.key);
+     * 
+     * traverse(tree.right);
+     * }
+     * }
+     * 
+     * InOrder tree = new InOrder(10);
+     * tree.left = new InOrder(20);
+     * tree.right = new InOrder(30);
+     * tree.left.left = new InOrder(40);
+     * tree.left.right = new InOrder(50);
+     * InOrder.traverse(tree);
+     */
+
+
+    // 127.Get the Postorder traversal of its nodes' values of a given binary tree.
+    /*
+     * class PostOrder{
+     * int key;
+     * PostOrder left,right;
+     * 
+     * PostOrder(int item){
+     * key = item;
+     * left = right = null;
+     * }
+     * 
+     * private static final void traverse(PostOrder tree) {
+     * if(tree == null)
+     * return;
+     * 
+     * traverse(tree.left);
+     * traverse(tree.right);
+     * System.out.print(tree.key + " ");
+     * }
+     * }
+     * 
+     * PostOrder tree = new PostOrder(55);
+     * tree.left = new PostOrder(21);
+     * tree.right = new PostOrder(80);
+     * tree.left.left = new PostOrder(9);
+     * tree.left.right = new PostOrder(29);
+     * tree.right.left = new PostOrder(76);
+     * tree.right.right = new PostOrder(91);
+     * 
+     * PostOrder.traverse(tree);
+     */
+
+    // 128.Calculate the median of given unsorted integers array.
+    /*
+     * int[] numbers1 = {10, 2, 38, 22, 38, 23};
+     * 
+     * MedianSearcher(numbers1);
+     * int[] numbers2 = {10, 2, 38, 23, 38, 23, 21};
+     * MedianSearcher(numbers2);
+     */
+
+    // 129.Find number that appears only once in given integers array, all numbers occur twice.
+    /*
+     * int[] numbers = {10, 20, 10, 20, 30, 40, 30, 50, 50};
+     * 
+     * Arrays.sort(numbers);
+     * 
+     * for (byte i = 1; i < numbers.length; i += 2) {
+     * if (numbers[i] != numbers[i - 1]) {
+     * System.out.println(numbers[i - 1]);
+     * System.exit(0);
+     * }
+     * }
+     * 
+     * System.out.println(numbers[numbers.length - 1]);
+     */
+
+    // 130.Find the maximum depth of given binary tree.
+    /*
+     * class Nodes {
+     * int key;
+     * Nodes left, right;
+     * 
+     * Nodes(int item) {
+     * key = item;
+     * left = right = null;
+     * }
+     * 
+     * private final static int traverse(Nodes tree) {
+     * if (tree == null)
+     * return 0;
+     * 
+     * int lDepth = traverse(tree.left);
+     * int rDepth = traverse(tree.right);
+     * 
+     * if (lDepth > rDepth)
+     * return lDepth + 1;
+     * else
+     * return rDepth + 1;
+     * }
+     * }
+     * 
+     * Nodes tree = new Nodes(55);
+     * tree.left = new Nodes(21);
+     * tree.right = new Nodes(80);
+     * tree.left.left = new Nodes(9);
+     * tree.left.right = new Nodes(29);
+     * tree.right.left = new Nodes(76);
+     * tree.right.right = new Nodes(91);
+     * System.out.println(Nodes.traverse(tree));
+     */
+
+    // 131.Find the new length of a given sorted array where each element appear only once (remove the duplicates )
+    /*
+     * int[] numbers = {1, 1, 2, 3, 3, 3, 4, 5, 6, 7, 7};
+     * int temp = numbers[0], count = 1;
+     * for (byte i = 1; i < numbers.length; i ++) {
+     * if(temp != numbers[i])
+     * count++;
+     * 
+     * temp = numbers[i];
+     * 
+     * }
+     * 
+     * System.out.println(count);
+     */
+
+    // 132.
   }
+  // Method for Task 128.
+
+  /*
+   * private static final void MedianSearcher(int[] numbers) {
+   * int len = numbers.length;
+   * int mid = len / 2;
+   * if (len % 2 == 0) {
+   * int sum = numbers[mid] + numbers[mid - 1];
+   * System.out.println(sum / 2);
+   * } else {
+   * System.out.println(numbers[mid]);
+   * }
+   * }
+   */
+
+  // Method for Task 120.
+
+  /*
+   * private static final boolean searchMatrix(int[][] matrix, int target) {
+   * if (matrix.length == 0 || matrix[0].length == 0) {
+   * return false;
+   * }
+   * int m = matrix.length, n = matrix[0].length, lower = 0, higher = m * n - 1;
+   * 
+   * while (lower <= higher) {
+   * int mid = (lower + higher) >> 1;
+   * int val = matrix[mid / n][mid % n];
+   * if (val == target)
+   * return true;
+   * if (val < target)
+   * lower = mid + 1;
+   * else
+   * higher = mid - 1;
+   * }
+   * return false;
+   * }
+   */
 
   // Method for Task 114.
   /*
@@ -1921,5 +2317,3 @@ final class Practice {
    */
 
 }
-
-
