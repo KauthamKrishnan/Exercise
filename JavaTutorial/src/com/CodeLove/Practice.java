@@ -2191,8 +2191,145 @@ class Practice {
      * System.out.println(count);
      */
 
-    // 132.
+    // 132.Find the new length of given sorted array where duplicate elements appeared at most twice.
+    /*
+     * int[] numbers = {1, 1, 2, 3, 3, 3, 4, 5, 6, 7, 7, 7, 7};
+     * int count = 0, temp;
+     * boolean canIncrease = false;
+     * 
+     * for (byte i = 1; i < numbers.length; i++) {
+     * 
+     * if (numbers[i - 1] == numbers[i]) {
+     * count++;
+     * canIncrease = true;
+     * } else if (canIncrease) {
+     * count++;
+     * canIncrease = false;
+     * }
+     * }
+     * if (canIncrease)
+     * count++;
+     * 
+     * System.out.println(count);
+     */
+    // 133.Find path from top left to bottom in right direction which minimizes the sum of all numbers along its path.
+    /*
+     * int[][] box = {{7, 4, 2}, {0, 5, 6}, {3, 1, 2}};
+     * System.out.println(minPath(box));
+     */
+
+    // 134.Find the distinct ways you can climb to the top (n steps to reach to the top) of stairs. You can climb 1 or 2
+    // steps.
+    /*
+     * int target = 5;
+     * System.out.println(Counter(target));
+     */
+
+
+    // 135.Remove duplicates from a sorted linked list.
+    /*
+     * LinkedList<Integer> numbers = new LinkedList<Integer>();
+     * numbers.add(12);
+     * numbers.add(12);
+     * numbers.add(14);
+     * numbers.add(15);
+     * numbers.add(15);
+     * numbers.add(16);
+     * numbers.add(17);
+     * int i = 1;
+     * 
+     * do {
+     * if(numbers.get(i-1) == numbers.get(i)) {
+     * numbers.remove(i);
+     * }
+     * else {
+     * i++;
+     * }
+     * 
+     * }while(i < numbers.size());
+     * 
+     * System.out.println(numbers.toString());
+     */
+
+    // 136.Find possible unique paths from top-left corner to bottom-right corner of given grid (m x n).
+    /*
+     * int m = 3, n = 3;
+     * System.out.println(UniquePath(m, n));
+     */
+
+    // 137.Find possible unique paths considering some obstacles, from top-left corner to bottom-right corner of given
+    // grid (m x n).
+    int[][] A = {{0, 0, 0}, {0, 1, 0}, {0, 0, 0}};
+    
   }
+
+  //Method for Task 137.
+  private static int Path(int[][] A) {
+    int r = 3, c = 3;
+    
+    int[][] paths = new int[r];
+  }
+  // Method for Task 136.
+  /*
+   * private static int UniquePath(int m, int n) {
+   * int[][] dp = new int[m][n];
+   * dp[0][0] = 0;
+   * for (int j = 1; j < n; j++) {
+   * dp[0][j] = 1;
+   * }
+   * for (int i = 1; i < m; i++) {
+   * dp[i][0] = 1;
+   * }
+   * 
+   * for (int i = 1; i < m; i++) {
+   * for (int j = 1; j < n; j++) {
+   * dp[i][j] = dp[i - 1][j] + dp[i][j - 1];
+   * }
+   * }
+   * 
+   * return dp[m - 1][n - 1];
+   * }
+   */
+
+  // Method for Task 134.
+  /*
+   * private static int Counter(int n) {
+   * if (n == 1 || n == 0)
+   * return 1;
+   * else if (n == 2)
+   * return 2;
+   * 
+   * else
+   * return Counter(n - 3) + Counter(n - 2) + Counter(n - 1);
+   * }
+   */
+
+
+
+  // Method for Task 133.
+  /*
+   * private static int minPath(int[][] box) {
+   * int N = box.length;
+   * int M = box[0].length;
+   * 
+   * int[][] sum = new int[M][N];
+   * 
+   * for (byte i = 0; i < M; i++) {
+   * for (byte j = 0; j < N; j++) {
+   * if (i == 0 && j == 0) {
+   * sum[i][j] = box[i][j];
+   * continue;
+   * }
+   * 
+   * int up = i == 0 ? Integer.MAX_VALUE : sum[i-1][j];
+   * int left = j == 0 ? Integer.MAX_VALUE : sum[i][j-1];
+   * 
+   * sum[i][j] = Math.min(up, left) + box[i][j];
+   * }
+   * }
+   * return sum[M-1][N-1];
+   * }
+   */
   // Method for Task 128.
 
   /*
