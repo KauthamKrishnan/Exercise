@@ -8,9 +8,11 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.LinkedList;
 import java.util.Optional;
 import java.util.Scanner;
+import java.util.Stack;
 import java.util.concurrent.TimeUnit;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
@@ -2259,16 +2261,155 @@ class Practice {
 
     // 137.Find possible unique paths considering some obstacles, from top-left corner to bottom-right corner of given
     // grid (m x n).
-    int[][] A = {{0, 0, 0}, {0, 1, 0}, {0, 0, 0}};
+    /*
+     * int[][] A = {{0, 0, 0}, {0, 1, 0}, {0, 0, 0}};
+     * System.out.println(Path(A));
+     */
+
+    // 138.Find all of the longest word in given dictionary.
+    /*
+     * String[] dictionary = {"cat", "dog", "red", "is", "am"};
+     * String[] dictionary = {"cat", "flag", "green", "country", "w3resource"};
+     * Order(dictionary);
+     */
+
+    // 139.Get the index of the 1st number and last number of subarray where the sum of numbers is zero from given
+    // integer array.
+    /*
+     * int[] numbers = {1, 2, 3, -3, 5, 4};
+     * int numLen = numbers.length, firstInd = 0, lastInd = 0;
+     * boolean has0 = false;
+     * 
+     * for (int i = 0; i < numLen - 1; i++) {
+     * if (has0) {
+     * firstInd = i - 1;
+     * break;
+     * }
+     * int sum = numbers[i];
+     * for (int j = i + 1; j < numLen; j++) {
+     * if ((sum += numbers[j]) == 0) {
+     * lastInd = j;
+     * has0 = true;
+     * break;
+     * }
+     * }
+     * }
+     * 
+     * if (!has0)
+     * System.out.println("Subarray never had sum of 0.");
+     * else
+     * System.out.println("Index of first number and last number is " + firstInd + " , " + lastInd + ".");
+     */
+
+    // 140.Merge all overlapping Intervals from a given collection of intervals.
+    /*int[][] intervals = {{8, 10}, {1, 3}, {15, 18}, {2, 6}};
+
+    Arrays.sort(intervals, new Comparator<int[]>() {
+      public int compare(int[] a, int[] b) {
+        return Integer.compare(a[0], b[0]);
+      }
+    });
+
+    Stack<int[]> stack = new Stack<int[]>();
+    stack.push(intervals[0]);
+
+    for (byte i = 1; i < intervals.length; i++) {
+      int[] top = stack.peek();
+
+      if (top[1] < intervals[i][0])
+        stack.push(intervals[i]);
+      else if(top[1]< intervals[i][1])
+        top[1] = intervals[i][1];
+    }
+    
+    System.out.println("The Merged Intervals: ");
+    while(!stack.isEmpty()) {
+      int[] t = stack.pop();
+      
+      System.out.print(Arrays.toString(t) + " ");
+    }*/
+
+    // 141.Check if given string has all unique characters.
+    /*String word = "Jamuna";
+    char[] characters = word.toCharArray();
+
+    for(char character:characters) {
+      int count = (word.length() - word.replace(Character.toString(character), "").length());
+      if(count > 1) {
+        System.out.println("False");
+        break;
+      }
+    }*/
+    
+    //142.Check if two given strings are anagrams or not.
+    
+    //143.Merge two given sorted lists.
     
   }
 
-  //Method for Task 137.
-  private static int Path(int[][] A) {
-    int r = 3, c = 3;
-    
-    int[][] paths = new int[r];
-  }
+
+
+  // Method for Task 138.
+  /*
+   * private static void Order(String[] dictionary) {
+   * ArrayList<String> newDic = new ArrayList<String>();
+   * 
+   * int wordLen = dictionary[0].length();
+   * newDic.add(dictionary[0]);
+   * 
+   * for (byte i = 1; i < dictionary.length; i++) {
+   * int currWordLen = dictionary[i].length();
+   * if (wordLen == currWordLen)
+   * newDic.add(dictionary[i]);
+   * else if (wordLen > currWordLen)
+   * continue;
+   * else if (wordLen < currWordLen) {
+   * wordLen = currWordLen;
+   * newDic.removeAll(newDic);
+   * newDic.add(dictionary[i]);
+   * }
+   * }
+   * 
+   * System.out.println(newDic.toString());
+   * }
+   */
+
+  // Method for Task 137.
+  /*
+   * private static int Path(int[][] A) {
+   * int r = 3, c = 3;
+   * 
+   * int[][] paths = new int[r][c];
+   * for (int i = 0; i < r; i++) {
+   * for (int j = 0; j < c; j++) {
+   * paths[i][j] = 0;
+   * }
+   * }
+   * 
+   * if (A[0][0] == 0)
+   * paths[0][0] = 1;
+   * 
+   * for (int i = 1; i < r; i++) {
+   * if (A[i][0] == 0)
+   * paths[i][0] = paths[i - 1][0];
+   * }
+   * 
+   * for (int j = 1; j < c; j++) {
+   * if (A[0][j] == 0)
+   * paths[0][j] = paths[0][j - 1];
+   * }
+   * 
+   * for (int i = 1; i < r; i++) {
+   * for (int j = 1; j < c; j++) {
+   * if (A[i][j] == 0)
+   * paths[i][j] = paths[i - 1][j] + paths[i][j - 1];
+   * }
+   * }
+   * 
+   * return paths[r - 1][c - 1];
+   * }
+   */
+
   // Method for Task 136.
   /*
    * private static int UniquePath(int m, int n) {
