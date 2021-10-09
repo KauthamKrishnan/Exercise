@@ -2,12 +2,14 @@
 
 package com.CodeLove;
 
+import java.io.ByteArrayInputStream;
 import java.io.Console;
 import java.io.File;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.Comparator;
 import java.util.LinkedList;
 import java.util.Optional;
@@ -16,41 +18,83 @@ import java.util.Stack;
 import java.util.concurrent.TimeUnit;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
+import java.util.List;
+
+/*
+ * class Nodes {
+ * int key;
+ * Nodes left, right;
+ * 
+ * Nodes(int item) {
+ * key = item;
+ * left = right = null;
+ * }
+ * }
+ * 
+ * class BinaryTree {
+ * Nodes root1, root2;
+ * 
+ * boolean areIdentical(Nodes root1, Nodes root2) {
+ * if(root1 == null && root2 == null)
+ * return true;
+ * 
+ * if(root1 == null || root2 == null)
+ * return false;
+ * 
+ * return(root1.key == root2.key && areIdentical(root1.left,root2.left) && areIdentical(root1.right,root2.right));
+ * }
+ * 
+ * boolean isSubTree(Nodes T,Nodes S) {
+ * if(S == null)
+ * return true;
+ * 
+ * if(T == null)
+ * return false;
+ * 
+ * if(areIdentical(T,S))
+ * return true;
+ * 
+ * return isSubTree(T.left,S) || isSubTree(T.right,S);
+ * }
+ * }
+ */
 
 class Practice {
 
-  static Node head;
-
-  static class Node {
-    int data;
-    Node nextNode;
-
-    Node(int d) {
-      data = d;
-      nextNode = null;
-    }
-  }
-
-  Node reverse(Node node) {
-    Node prevNode = null, currNode = node, nextNode = null;
-
-    while (currNode != null) {
-      nextNode = currNode.nextNode;
-      currNode.nextNode = prevNode;
-      prevNode = currNode;
-      currNode = nextNode;
-    }
-
-    node = prevNode;
-    return node;
-  }
-
-  void printList(Node node) {
-    while (node != null) {
-      System.out.print(node.data + " ");
-      node = node.nextNode;
-    }
-  }
+  /*
+   * static Node head;
+   * 
+   * static class Node {
+   * int data;
+   * Node nextNode;
+   * 
+   * Node(int d) {
+   * data = d;
+   * nextNode = null;
+   * }
+   * }
+   * 
+   * Node reverse(Node node) {
+   * Node prevNode = null, currNode = node, nextNode = null;
+   * 
+   * while (currNode != null) {
+   * nextNode = currNode.nextNode;
+   * currNode.nextNode = prevNode;
+   * prevNode = currNode;
+   * currNode = nextNode;
+   * }
+   * 
+   * node = prevNode;
+   * return node;
+   * }
+   * 
+   * void printList(Node node) {
+   * while (node != null) {
+   * System.out.print(node.data + " ");
+   * node = node.nextNode;
+   * }
+   * }
+   */
 
   public static void main(String[] args) {
     // 1.Print text.
@@ -2144,6 +2188,7 @@ class Practice {
      */
 
     // 130.Find the maximum depth of given binary tree.
+
     /*
      * class Nodes {
      * int key;
@@ -2302,51 +2347,226 @@ class Practice {
      */
 
     // 140.Merge all overlapping Intervals from a given collection of intervals.
-    /*int[][] intervals = {{8, 10}, {1, 3}, {15, 18}, {2, 6}};
-
-    Arrays.sort(intervals, new Comparator<int[]>() {
-      public int compare(int[] a, int[] b) {
-        return Integer.compare(a[0], b[0]);
-      }
-    });
-
-    Stack<int[]> stack = new Stack<int[]>();
-    stack.push(intervals[0]);
-
-    for (byte i = 1; i < intervals.length; i++) {
-      int[] top = stack.peek();
-
-      if (top[1] < intervals[i][0])
-        stack.push(intervals[i]);
-      else if(top[1]< intervals[i][1])
-        top[1] = intervals[i][1];
-    }
-    
-    System.out.println("The Merged Intervals: ");
-    while(!stack.isEmpty()) {
-      int[] t = stack.pop();
-      
-      System.out.print(Arrays.toString(t) + " ");
-    }*/
+    /*
+     * int[][] intervals = {{8, 10}, {1, 3}, {15, 18}, {2, 6}};
+     * 
+     * Arrays.sort(intervals, new Comparator<int[]>() {
+     * public int compare(int[] a, int[] b) {
+     * return Integer.compare(a[0], b[0]);
+     * }
+     * });
+     * 
+     * Stack<int[]> stack = new Stack<int[]>();
+     * stack.push(intervals[0]);
+     * 
+     * for (byte i = 1; i < intervals.length; i++) {
+     * int[] top = stack.peek();
+     * 
+     * if (top[1] < intervals[i][0])
+     * stack.push(intervals[i]);
+     * else if(top[1]< intervals[i][1])
+     * top[1] = intervals[i][1];
+     * }
+     * 
+     * System.out.println("The Merged Intervals: ");
+     * while(!stack.isEmpty()) {
+     * int[] t = stack.pop();
+     * 
+     * System.out.print(Arrays.toString(t) + " ");
+     * }
+     */
 
     // 141.Check if given string has all unique characters.
-    /*String word = "Jamuna";
-    char[] characters = word.toCharArray();
+    /*
+     * String word = "Jamuna";
+     * char[] characters = word.toCharArray();
+     * 
+     * for(char character:characters) {
+     * int count = (word.length() - word.replace(Character.toString(character), "").length());
+     * if(count > 1) {
+     * System.out.println("False");
+     * break;
+     * }
+     * }
+     */
 
-    for(char character:characters) {
-      int count = (word.length() - word.replace(Character.toString(character), "").length());
-      if(count > 1) {
-        System.out.println("False");
-        break;
-      }
-    }*/
-    
-    //142.Check if two given strings are anagrams or not.
-    
-    //143.Merge two given sorted lists.
-    
+    // 142.Check if two given strings are anagrams or not.
+    /*
+     * String firstWord = "Jamuna", secWord = "anumaJ";
+     * char[] firstChar = firstWord.toCharArray(), secChar = secWord.toCharArray();
+     * int firstLen = firstChar.length, secLen = secChar.length;
+     * boolean isAnagram = true;
+     * if (firstLen != secLen)
+     * isAnagram = false;
+     * else {
+     * Arrays.sort(firstChar);
+     * Arrays.sort(secChar);
+     * 
+     * for (byte i = 0; i < firstLen; i++) {
+     * if (firstChar[i] != secChar[i])
+     * isAnagram = false;
+     * }
+     * }
+     * 
+     * System.out.println("Anagram: " + isAnagram);
+     */
+
+    // 143.Merge two given sorted lists.
+    /*
+     * List<Integer> firstNums = new ArrayList<Integer>();
+     * List<Integer> secNums = new ArrayList<Integer>();
+     * firstNums.add(1);
+     * firstNums.add(2);
+     * firstNums.add(3);
+     * firstNums.add(4);
+     * firstNums.add(5);
+     * secNums.add(6);
+     * secNums.add(7);
+     * secNums.add(8);
+     * firstNums.addAll(secNums);
+     * System.out.println(firstNums.toString());
+     */
+
+    // 144.Remove all occurrences of specified value in given integers array and return the new length of the array.
+    /*
+     * int[] numbers = {1, 4, 6, 7, 6, 2};
+     * int target = 6;
+     * System.out.println(remover(numbers, target));
+     */
+
+    // 145.Remove the nth element from the end of given list.
+    /*
+     * Byte[] numbers = {1, 2, 3, 4, 5};
+     * LinkedList<Byte> list = new LinkedList<Byte>();
+     * Collections.addAll(list, numbers);
+     * byte nthElement = 5, target = (byte) (list.size() - nthElement);
+     * 
+     * System.out.println("Original LinkedList: " + list.toString());
+     * list.remove(target);
+     * System.out.println("New LinkedList: " + list.toString());
+     */
+
+    // 146.Convert a sorted array to binary search tree. Maintain minimal height of the tree.
+    /*
+     * int[] numbers = {1, 2, 3, 4, 5, 6};
+     * Practice.bstConstruction(numbers, 0, numbers.length - 1);
+     */
+
+    // 147.Find the number of bits required to flip convert 2 given integers.
+    /*
+     * int firstNum = 31, secNum = 12;
+     * System.out.println(counter(firstNum, secNum));
+     */
+
+    // 148.Find the index of 1st unique character in given string, assume that there is at least 1 unique character in
+    // the string
+    /*
+     * String word = "anagram";
+     * char[] wordBox = word.toCharArray();
+     * for (byte i = 0; i < wordBox.length; i++) {
+     * byte wordLen = (byte) (word.length() - word.replace(Character.toString(wordBox[i]), "").length());
+     * if (wordLen == 1) {
+     * System.out.println(i);
+     * break;
+     * }
+     * }
+     */
+
+    // 149.Check if given string is permutation of another given string.
+    /*
+     * String word = "Hello",secWord = "loHel";
+     * char[] wordArray = word.toCharArray(), secWordArray = secWord.toCharArray();
+     * Arrays.sort(wordArray);
+     * Arrays.sort(secWordArray);
+     * byte wordLen =(byte) wordArray.length;
+     * boolean checker = true;
+     * for(byte i = 0; i<wordLen;i++) {
+     * if(wordArray[i] != secWordArray[i]) {
+     * checker = false;
+     * break;
+     * }
+     * }
+     * 
+     * System.out.println(checker);
+     */
+
+    // 150.Test if binary tree is a subtree of another binary tree.
+    /*
+     * BinaryTree tree = new BinaryTree();
+     * 
+     * tree.root1 = new Nodes(26);
+     * tree.root1.right = new Nodes(3);
+     * tree.root1.right.right = new Nodes(3);
+     * tree.root1.left = new Nodes(10);
+     * tree.root1.left.left = new Nodes(4);
+     * tree.root1.left.left.right = new Nodes(30);
+     * tree.root1.left.right = new Nodes(6);
+     * 
+     * tree.root2 = new Nodes(10);
+     * tree.root2.right = new Nodes(6);
+     * tree.root2.left = new Nodes(4);
+     * tree.root2.left.right = new Nodes(30);
+     * 
+     * if(tree.isSubTree(tree.root1, tree.root2))
+     * System.out.println("Tree 2 is subtree of Tree 1.");
+     * else
+     * System.out.println("Tree 2 is not a subtree of Tree 1.");
+     */
   }
+  // Method for Task 147.
+  /*
+   * private static final int counter(int firstNum, int secNum) {
+   * int n = (firstNum ^ secNum);
+   * int count = 0;
+   * while (n != 0) {
+   * count++;
+   * n &= (n - 1);
+   * }
+   * return count;
+   * }
+   */
 
+  /*
+   * class TreeNode {
+   * int data;
+   * TreeNode left, right;
+   * 
+   * TreeNode(int item) {
+   * data = item;
+   * left = right = null;
+   * }
+   * }
+   */
+
+  // Method for Task 146.
+  /*
+   * private final static TreeNode bstConstruction(int[] numbers, int leftSide, int rightSide) {
+   * if (leftSide > rightSide)
+   * return null;
+   * 
+   * int mid = leftSide + (rightSide - leftSide) / 2;
+   * TreeNode current = new TreeNode(numbers[mid]);
+   * current.left = bstConstruction(numbers, leftSide, mid - 1);
+   * current.right = bstConstruction(numbers, mid + 1, rightSide);
+   * System.out.print(current.data + " ");
+   * return current;
+   * }
+   */
+
+
+  // Method for Task 144.
+  /*
+   * private static int remover(int[] numbers, int target) {
+   * int count = 0;
+   * for (int number : numbers) {
+   * if (number != target) {
+   * count++;
+   * }
+   * }
+   * 
+   * return count;
+   * }
+   */
 
 
   // Method for Task 138.
